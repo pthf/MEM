@@ -1,0 +1,41 @@
+.quien-top
+  width 90%
+  height auto
+  margin 0 auto
+  padding 3vw 0 2vw 0
+
+h2
+    position:relative
+    overflow:hidden
+    color rgb(35,39,95)
+    font-size 24px
+
+h2:after
+    content:""
+    top:48%
+    width:100%
+    margin-left:10px
+    height:5px
+    position:absolute
+    $color-line = rgb(35,39,95)
+    background-image: -o-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -moz-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -webkit-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -ms-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: linear-gradient(to right, $color-line 0%, $color-line 100%)
+
+@media (max-width 1024px)
+  h2
+    font-size 20px
+@media (max-width 768px)
+  h2
+      font-size 18px
+@media (max-width 640px)
+  h2
+      font-size 16px
+@media (max-width 480px)
+  h2
+      font-size 14px
+@media (max-width 320px)
+  h2
+      font-size 12px

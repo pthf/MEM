@@ -5,7 +5,7 @@ var nib = require('nib');
 var minifyCSS = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
-
+var imagemin = require('gulp-tinypng');
 
 
 var config = {
@@ -56,6 +56,12 @@ gulp.task('min-js', function() {
     return gulp.src('src/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('build/js/'))
+});
+
+gulp.task('tinypng', function () {
+	gulp.src('src/img/*.png')
+		.pipe(imagemin('dkXP52yPofvF2hGtUEgQmZQuZ0BwJpv4'))
+		.pipe(gulp.dest('build/img'));
 });
 
 gulp.task('build', ['build:css'])

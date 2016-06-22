@@ -1,0 +1,85 @@
+$blue = rgb(35,39,95)
+
+footer
+  width 100%
+  height auto
+  padding 1vw 0 1vw 0
+  background-color $blue
+
+.footer-wrapper
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  justify-content space-around
+  align-items center
+  width 100%
+
+.footer-top-right
+  width 50%
+  height auto
+
+ul.nav-footer
+  width 33%
+  margin-top 0
+
+ul.nav-footer li.nav-footer-item
+  color white
+  padding .5vw 0
+
+li.nav-footer-item
+  border-bottom 2px solid white
+  padding .4vw
+
+ul.social-list
+  display flex
+  flex-direction row
+  justify-content space-around
+  align-items center
+  width 50%
+
+ul.data-list li.data-list-item
+  color white
+  padding .4vw 0
+
+li.social-list-item a img
+  width 30px
+  height auto
+
+@media (max-width 768px)
+  ul.nav-footer
+    width 50%
+
+  .footer-top-left
+    width 40%
+    height auto
+
+  ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
+    font-size 14px
+
+@media (max-width 640px)
+  ul.nav-footer
+    width 65%
+
+  ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
+    font-size 12px
+
+  ul.social-list
+    width 70%
+
+  .footer-top-left
+    width 50%
+
+@media (max-width 480px)
+
+  .footer-top-left
+    width 68%
+
+  ul.nav-footer
+    padding-left 8vw
+
+  li.nav-footer-item
+    padding 1.5vw 0
+
+  ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
+    font-size 12px

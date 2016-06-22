@@ -3,19 +3,153 @@
   <head>
     <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title></title>
+    <title>Medicina Empresarial en Movimiento</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- JQuery  -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
   </head>
   <body>
-    <h1>Hola!</h1>
+
+  <!-- Header  -->
+  <header>
+    <section class="logo">
+      <a href="index.html"><img class="logo-header" src="img/logo-mem.svg" ></a>
+    </section>
+
+    <section class="menu-bar">
+      <ul class="list-content">
+        <a href="index.html"><li class="list-item hvr-underline-from-center"><span >Inicio</span></li></a>
+        <a href="html/quien.html"><li class="list-item hvr-underline-from-center"><span >Quiénes somos</span></li></a>
+        <a href="html/servicios.html"><li class="list-item hvr-underline-from-center"><span >Servicios</span></li></a>
+        <a href="html/instalaciones.html"><li class="list-item hvr-underline-from-center"><span>Instalaciones</span></li></a>
+        <a href="html/notas.html"><li class="list-item hvr-underline-from-center"><span>Notas</span></li></a>
+        <a href="html/contacto.html"><li class="list-item hvr-underline-from-center"><span>Contacto</span></li></a>
+      </ul>
+    </section>
+
+    <span class="nav-icon" >&#9776;</span>
+      <ul class="mobile-nav animated">
+        <a href="../index.html"><li class="selected">Inicio</li></a>
+        <a href="html/quien.html"><li>Quiénes somos</li></a>
+        <a href="html/servicios.html"><li>Servicios</li></a>
+        <a href="html/interes.html"><li>De tu interés</li></a>
+        <a href="html/eventos.html"><li>Eventos</li></a>
+        <a href="html/galeria.html"><li>Galería</li></a>
+        <a href="html/contacto.html"><li>Contacto</li></a>
+      </ul>
+
+  </header>
+
+  <!-- Slider -->
+  <section class="slider-wrapper">
+    <span style="touch-action: manipulation" class="arrow-left" href="#"> < </span>
+    <div class="touch-slider">
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+
+          <div class="swiper-slide">
+            <img src="img/banner-1-01.png">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="img/banner-2-01.png">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="img/banner-3-01.png">
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="pagination"></div>
+
+    </div>
+    <span style="touch-action: manipulation" class="arrow-right" href="#"> > </span>
+  </section>
+
+  <!-- Contenido -->
+  <div class="quien-top">
+    <h2>SERVICIOS</h2>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrapper">
+      <div class="footer-top-right">
+        <ul class="nav-footer">
+          <a href="../index.html"><li class="nav-footer-item"><span>Inicio</span></li></a>
+          <a href="html/quien.html"><li class="nav-footer-item"><span >Quiénes somos</span></li></a>
+          <a href="html/servicios.html"><li class="nav-footer-item"><span >Servicios</span></li></a>
+          <a href="html/instalaciones.html"><li class="nav-footer-item"><span>Instalaciones</span></li></a>
+          <a href="html/notas.html"><li class="nav-footer-item"><span>Notas</span></li></a>
+          <a href="html/contacto.html"><li class="nav-footer-item"><span>Contacto</span></li></a>
+        </ul>
+      </div>
+
+      <div class="footer-top-left">
+        <ul class="data-list">
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">COL. PROVIDENCIA.</li>
+          <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
+          <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>
+        </ul>
+
+        <ul class="social-list">
+          <li class="social-list-item"><a href=""><img src="img/linkedin.svg"/></a></li>
+          <li class="social-list-item"><a href=""><img src="img/fb.svg"/></a></li>
+          <li class="social-list-item"><a href=""><img src="img/twt.svg"/></a></li>
+        </ul>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- JQuery  -->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!-- Responsive Menu Script -->
+  <script type="text/javascript">
+
+    var icon = document.querySelector('.nav-icon');
+    var show = false;
+
+    icon.onclick = function() {
+
+    if (show) {
+      $('.mobile-nav').removeClass('fadeInDown');
+      $('.mobile-nav').addClass('fadeOutUp');
+    }else{
+      $('.mobile-nav').addClass('is-show');
+      $('.mobile-nav').addClass('fadeInDown');
+      $('.mobile-nav').removeClass('fadeOutUp');
+    }
+    show=!show;
+  }
+  </script>
+
+  <script src="js/slider.js"></script>
+  <!-- Slider settings -->
+  <script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container',{
+      pagination: '.pagination',
+      loop:true,
+      grabCursor: false,
+      paginationClickable: true,
+      autoplay:false,
+      speed:500
+    })
+    $('.arrow-left').on('click', function(e){
+      mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+      mySwiper.swipeNext()
+    })
+  </script>
 
   </body>
 </html>

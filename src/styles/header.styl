@@ -1,0 +1,149 @@
+header
+  width 100%
+  height auto
+  padding 2vw 0 2vw 0
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+  justify-content space-around
+  align-items flex-start
+  background-color white
+  z-index 4
+  position relative
+
+section.logo
+  width 20%
+  height auto
+  display inline-block
+
+.logo-header
+  width 100%
+
+section.menu-bar
+  width 60%
+  height auto
+  display inline-block
+
+ul.list-content
+  list-style-type none
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+  justify-content space-around
+  align-items space-around
+
+ul.list-content a
+  text-decoration none
+
+li.list-item
+  display inline
+  padding-bottom .5vw
+  margin 0
+  color rgb(35,39,95)
+  font-size 18px
+  font-weight bold
+
+li.list-item.selected
+  color rgb(97,170,234)
+
+ul.mobile-nav li.selected
+  color rgb(97,170,234)
+
+ul.mobile-nav a
+  text-decoration none
+
+
+/* mobile menu */
+
+span.nav-icon
+  position fixed
+  top 0
+  right 3%
+  font-size 42px
+  color rgb(35,39,95)
+  z-index 9
+  line-height 12vw
+
+ul.mobile-nav
+  height 0
+  width 100%
+  overflow hidden
+  transition height .5s ease-in-out
+  padding 0
+  position fixed
+  left 0
+  top -1%
+  z-index 8
+
+ul.is-show
+  height 100vw
+  z-index 8
+
+ul.mobile-nav li
+  display block
+  text-align center
+  padding 2vw 0 2vw 0
+  font-size 20px
+  z-index 8
+  color rgb(35,39,95)
+  background-color #fff
+
+.nav-icon,.mobile-nav
+  display none
+  cursor pointer
+
+.list-item:hover
+  color black
+
+@media (min-width 1680px)
+  li.list-item
+    font-size 24px
+
+@media (max-width 1024px)
+
+  section.menu-bar
+    width 70%
+
+@media (max-width 769px)
+
+  section.menu-bar
+    width 75%
+
+
+@media (max-width 768px)
+
+  header
+    position relative
+    padding 3vw 0
+
+  .nav-icon,.mobile-nav
+    display block
+
+  section.menu-bar
+    display none
+
+  section.logo
+    width 25%
+
+@media (max-width 480px)
+
+  span.nav-icon
+    font-size 32px
+    line-height 14vw
+
+  ul.mobile-nav
+    top -1.5%
+
+  section.logo
+    width 25%
+
+@media (max-width 320px)
+  span.nav-icon
+    font-size 28px
+    line-height 14vw
+
+  header
+    padding 4vw 0 4vw 0
+
+  section.logo
+    width 28%
