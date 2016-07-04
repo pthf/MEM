@@ -1,12 +1,12 @@
 section.slider-wrapper {
   width: 100%;
-  height: auto;
+  height: 39vw;
   position: relative;
 }
 
 .touch-slider {
   width: 90%;
-  height: 39vw;
+  height: auto;
   position: relative;
   margin: 0 auto;
 }
@@ -20,7 +20,7 @@ section.slider-wrapper {
   width: 25px;
   height: 50px;
   z-index: 2;
-  color black
+  color gray
   font-size: 40px;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -73,6 +73,7 @@ section.slider-wrapper {
   text-align: center;
   display: none;
 }
+
 .swiper-pagination-switch {
   display: inline-block;
   width: 15px;
@@ -145,6 +146,16 @@ section.slider-wrapper {
 }
 .swiper-wp8-vertical {
   -ms-touch-action: pan-x;
+}
+
+.touch-slider.bottom-slider {
+    width: 100%;
+    height: 20vw;
+}
+
+.swiper-container2 {
+    width: 100%;
+    height: 20vw;
 }
 
 @media (max-width: 768px){

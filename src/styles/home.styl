@@ -24,18 +24,266 @@ h2:after
     background-image: -ms-linear-gradient(right, $color-line 0%, $color-line 100%)
     background-image: linear-gradient(to right, $color-line 0%, $color-line 100%)
 
+h2.blue-bar:after
+    $color-line = rgb(0,166,213)
+    background-image: -o-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -moz-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -webkit-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: -ms-linear-gradient(right, $color-line 0%, $color-line 100%)
+    background-image: linear-gradient(to right, $color-line 0%, $color-line 100%)
+
+h2.blue-bar
+  color rgb(0,166,213)
+
+.opt-services
+  width 90%
+  height auto
+  margin 0 auto
+  padding-bottom 2vw
+
+.opt-services-list
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  flex-wrap wrap
+
+.opt-services-list-item
+  width 100%
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+.service-icon svg
+  width 150px
+  height 150px
+
+.service-icon svg .st0{fill:#66A8DD;}
+
+.opt-services-list-item:hover
+  background-color rgb(35,39,95)
+  cursor pointer
+
+.opt-services-list-item
+  width 25%
+
+.service-title
+  width 66%
+  margin 0 auto
+  text-align center
+  padding .5vw 0
+
+span.service-title-text
+  color rgb(0,173,223)
+  font-weight bold
+
+.results-wrapper
+  width 90%
+  height auto
+  margin 0 auto
+  padding 2vw 0
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+
+.results-info-box
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  justify-content space-around
+  align-items center
+
+.results-img
+  width 60%
+  height 20vw
+
+.results-img img
+  width 100%
+  height 100%
+
+.results-info
+  background-color rgb(0,173,223)
+  width 40%
+  height 20vw
+  display flex
+  flex-direction row
+  justify-content space-around
+  align-items center
+
+span.results-info-text
+  font-weight bold
+  font-size 34px
+  color #fff
+
+span.promo-text-info
+  font-weight bold
+  font-size 34px
+  color #fff
+
+.results-icon img,.promo-img img
+  width 125px
+  height 125px
+
+.promo-wrapper
+  width 90%
+  height auto
+  margin 0 auto
+  padding 2vw 0
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+
+.promo-title
+  width 40%
+  height 20vw
+  display flex
+  flex-direction row
+  justify-content space-around
+  align-items center
+  background-color rgb(0,173,223)
+
+.promo-title-title-wrapper
+  width 90%
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+
+.promo-img img
+  width 80px
+  height 80px
+
+span.promo-text-info
+  font-weight 700
+  font-size 32px
+  color #fff
+
+.promo-banners
+  width 60%
+  height 20vw
+  overflow hidden
+
+
 @media (max-width 1024px)
   h2
     font-size 20px
+
+  span.results-info-text
+    font-size 24px
+
+  span.promo-text-info
+    font-size 24px
+
+  .results-icon img,.promo-img img
+    width 100px
+    height 120px
+
 @media (max-width 768px)
+
+  .service-title
+    padding 2vw 0
+
+  section.slider-wrapper
+    padding-top 13vw
+
+  .results-wrapper,.promo-wrapper
+    flex-direction column
+
+  .results-img,.results-info,.promo-title,.promo-banners
+    width 85%
+    height 30vw
+
+  .results-info-box
+    width 100%
+
+  .promo-title-title-wrapper,.results-info-box
+    justify-content space-around
+    width 90%
+
+  .touch-slider.bottom-slider
+    width 100%
+    height 30vw
+
+  .swiper-container2
+    width 100%
+    height 30vw
+
+  span.promo-text-info, span.results-info-text
+    font-size 20px
+    width 50%
+
+  span.promo-text-info, span.results-info-text
+    font-size 20px
+
   h2
       font-size 18px
+
+  .opt-services-list-item
+    padding 5vw 0
+
+  .opt-services-list-item:nth-child(1)
+    flex 0 0 50%
+
+  .opt-services-list-item:nth-child(2)
+    flex 0 0 50%
+
+  .opt-services-list-item:nth-child(3)
+    flex 0 1 50%
+
+  .opt-services-list-item:nth-child(4)
+    flex 0 1 50%
+
+  span.results-info-text,span.promo-text-info
+    font-size 20px
+
+
 @media (max-width 640px)
   h2
       font-size 16px
+
 @media (max-width 480px)
   h2
       font-size 14px
+
+  .service-icon img
+    width 80px
+    height 80px
+
+  .opt-services-list-item
+    padding 10vw 0
+
+  .opt-services-list-item:nth-child(1)
+    flex 0 0 100%
+
+  .opt-services-list-item:nth-child(2)
+    flex 0 0 100%
+
+  .opt-services-list-item:nth-child(3)
+    flex 0 1 100%
+
+  .opt-services-list-item:nth-child(4)
+    flex 0 1 100%
+
+  .results-info-box
+    width 90%
+
+  section.slider-wrapper
+    padding-top 17vw
+
+  .promo-banners, .promo-title, .results-img, .results-info,.promo-title-title-wrapper,.results-info-box
+    width 100%
+
+  span.promo-text-info, span.results-info-text
+    width 70%
+
+  .promo-img img, .results-icon img
+    width 100px
+    height 75px
+
 @media (max-width 320px)
   h2
       font-size 12px

@@ -22,6 +22,7 @@ footer
 ul.nav-footer
   width 33%
   margin-top 0
+  padding-left 0
 
 ul.nav-footer li.nav-footer-item
   color white
@@ -42,9 +43,22 @@ ul.data-list li.data-list-item
   color white
   padding .4vw 0
 
-li.social-list-item a img
+li.social-list-item a svg
   width 30px
+  height 30px
+
+.contact-bar
+  width 100%
   height auto
+  padding 1vw 0
+  background-color rgb(204,204,204)
+  text-align center
+
+span.contact-text,span.contact-text a
+  font-size 20px
+  font-weight bold
+  color $blue
+
 
 @media (max-width 768px)
   ul.nav-footer
@@ -53,6 +67,9 @@ li.social-list-item a img
   .footer-top-left
     width 40%
     height auto
+
+  ul.data-list
+    padding-left 6vw  
 
   ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
     font-size 14px
@@ -70,6 +87,12 @@ li.social-list-item a img
   .footer-top-left
     width 50%
 
+  span.contact-text,span.contact-text a
+    font-size 16px
+
+  ul.nav-footer
+    padding-left 6vw
+
 @media (max-width 480px)
 
   .footer-top-left
@@ -78,8 +101,14 @@ li.social-list-item a img
   ul.nav-footer
     padding-left 8vw
 
+  ul.nav-footer li.nav-footer-item
+    padding 1.8vw 0
+
   li.nav-footer-item
     padding 1.5vw 0
 
   ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
     font-size 12px
+
+  span.contact-text,span.contact-text a
+    font-size 14px
