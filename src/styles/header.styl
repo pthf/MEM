@@ -30,7 +30,7 @@ ul.list-content
   flex-wrap nowrap
   flex-direction row
   justify-content space-around
-  align-items space-around
+  align-items center
 
 ul.list-content a
   text-decoration none
@@ -42,6 +42,7 @@ li.list-item
   color rgb(35,39,95)
   font-size 18px
   font-weight bold
+  cursor pointer
 
 li.list-item.selected
   color rgb(97,170,234)
@@ -93,7 +94,15 @@ ul.mobile-nav li
   cursor pointer
 
 .list-item:hover
-  color black
+  color #00a6d5
+
+li.list-item.selected-menu-item
+  border-bottom 4px solid #00a6d5
+  padding 0.3vw 0
+
+span.selected-menu-opt
+  color #00a6d5
+
 
 @media (min-width 1680px)
   li.list-item
