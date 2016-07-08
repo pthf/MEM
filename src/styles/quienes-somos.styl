@@ -8,9 +8,8 @@
   align-items center
 
 .mem-desc-img,.mem-desc-text
-  flex 0 1 50%
-  -webkit-flex 0 1 50%
-  height 40vw
+  width 50%
+  height auto
 
 .mem-desc-text
   overflow scroll
@@ -61,7 +60,7 @@ p.mem-desc-info
   margin 3vw 0
 
 .mem-vm-img
-  flex 0 1 50%
+  width 50%
   height 40vw
 
 .mem-vm-img img
@@ -70,8 +69,7 @@ p.mem-desc-info
 
 .mem-vm-info
   display flex
-  flex 0 1 50%
-  -webkit-flex 0 1 50%
+  width 50%
   height auto
   flex-direction column
   justify-content space-around
@@ -93,7 +91,7 @@ p.mem-desc-info
   margin 3vw 0
 
 .mem-values-info,.mem-values-img
-  flex 0 1 50%
+  width 50%
   height 50vh
 
 .mem-values-img img
@@ -132,9 +130,6 @@ li.value-list-item
     margin-top 13vw
     padding 0
 
-  .mem-desc
-    flex-wrap wrap
-
   .mem-desc-img
     height auto
 
@@ -142,7 +137,7 @@ li.value-list-item
     height auto
 
   .mem-desc-img,.mem-desc-text
-    flex 0 1 90%
+    width 90%
 
   .mem-des2
     width 90%
@@ -152,7 +147,7 @@ li.value-list-item
     flex-direction column
 
   .mem-vm-img,.mem-vm-info
-    flex 0 1 100%
+    width 100%
 
   .mem-vm-img,.mem-vm-bottom, .mem-vm-top,.mem-img2,.mem-desc-text-wrapper,.mem-values-img, .mem-values-info
     width 90%
@@ -166,11 +161,4 @@ li.value-list-item
     flex-direction column-reverse
 
   .mem-values-info
-    height auto
-
-@media(max-width 480px)
-  .mem-desc-img,
-    height auto
-
-  .mem-desc-text
     height auto

@@ -23,7 +23,7 @@
 
 .nota-text
   display flex
-  flex 0 1 58%
+  width 58%
   margin-top 1vw
 
 .nota-text p
@@ -31,7 +31,7 @@
 
 .nota-img-column
   display flex
-  flex 0 1 40%
+  width 40%
   flex-direction column
 
 .nota-img-column img
@@ -42,6 +42,8 @@
   margin 1vw 0
 
 @media (max-width 768px)
+  .nota-text
+    width 100%
   .nota-content-wrapper
     flex-direction column
 

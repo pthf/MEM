@@ -11,6 +11,13 @@
   </head>
   <body>
 
+  <div class="background-lightbox">
+    <div class="text-alert">
+      <img src="../img/close-icon.svg" alt="">
+      <p> “GRACIAS POR PONERTE EN CONTACTO CON NOSOTROS, EN BREVE NOS COMUNICAREMOS”</p>
+    </div>
+  </div>
+
   <!-- Header  -->
   <header>
     <section class="logo">
@@ -39,7 +46,6 @@
       </ul>
 
   </header>
-
 
   <!-- Contenido -->
   <div class="sites-quien">
@@ -193,24 +199,18 @@
 
   <!-- Responsive Menu Script -->
   <script type="text/javascript">
-
-    var icon = document.querySelector('.nav-icon');
-    var show = false;
-
-    icon.onclick = function() {
-
-    if (show) {
-      $('.mobile-nav').removeClass('fadeInDown');
-      $('.mobile-nav').addClass('fadeOutUp');
-    }else{
-      $('.mobile-nav').addClass('is-show');
-      $('.mobile-nav').addClass('fadeInDown');
-      $('.mobile-nav').removeClass('fadeOutUp');
-    }
-    show=!show;
-  }
+    var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
   </script>
 
+  <!-- PopUp submit -->
+  <script type="text/javascript">
+    $( "input.send-data" ).click(function() {
+      $('.background-lightbox').css('display', 'block');
+    });
+    $( ".text-alert img" ).click(function() {
+      $('.background-lightbox').css('display', 'none');
+    });
+  </script>
 
   </body>
 </html>

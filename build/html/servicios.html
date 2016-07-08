@@ -190,22 +190,7 @@
 
   <!-- Responsive Menu Script -->
   <script type="text/javascript">
-
-    var icon = document.querySelector('.nav-icon');
-    var show = false;
-
-    icon.onclick = function() {
-
-    if (show) {
-      $('.mobile-nav').removeClass('fadeInDown');
-      $('.mobile-nav').addClass('fadeOutUp');
-    }else{
-      $('.mobile-nav').addClass('is-show');
-      $('.mobile-nav').addClass('fadeInDown');
-      $('.mobile-nav').removeClass('fadeOutUp');
-    }
-    show=!show;
-  }
+    var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
   </script>
 
   <script type="text/javascript">

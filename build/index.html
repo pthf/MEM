@@ -413,24 +413,14 @@
 
   <!-- Responsive Menu Script -->
   <script type="text/javascript">
-
-    var icon = document.querySelector('.nav-icon');
-    var show = false;
-
-    icon.onclick = function() {
-
-    if (show) {
-      $('.mobile-nav').removeClass('fadeInDown');
-      $('.mobile-nav').addClass('fadeOutUp');
-    }else{
-      $('.mobile-nav').addClass('is-show');
-      $('.mobile-nav').addClass('fadeInDown');
-      $('.mobile-nav').removeClass('fadeOutUp');
-    }
-    show=!show;
-  }
+    var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
+  </script>
+  <!-- hover boxes -->
+  <script type="text/javascript">
+    $(".opt-services-list-item").mouseenter(function(){$(".service-icon svg .st0",this).css("fill","#fff"),$("span.service-title-text",this).css("color","#fff")}).mouseleave(function(){$("span.service-title-text",this).css("color","rgb(0,173,223)"),$(".service-icon svg .st0",this).css("fill","#66A8DD")});
   </script>
 
+  <!-- Initialize Swiper -->
   <script src="js/slider.js"></script>
   <!-- Slider settings -->
   <script type="text/javascript">
@@ -466,19 +456,6 @@
     $('.arrow-bottom-right').on('click', function(e){
       mySwiper2.swipeNext()
     })
-  </script>
-
-  <!-- hover boxes -->
-  <script type="text/javascript">
-  $( ".opt-services-list-item" )
-  .mouseenter(function() {
-    $('.service-icon svg .st0',this ).css( "fill", "#fff" );
-    $('span.service-title-text',this ).css( "color", "#fff" );
-  })
-  .mouseleave(function() {
-    $('span.service-title-text',this ).css( "color", "rgb(0,173,223)" );
-    $('.service-icon svg .st0',this ).css( "fill", "#66A8DD" );
-  });
   </script>
 
   </body>
