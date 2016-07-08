@@ -73,7 +73,6 @@ p.mem-desc-info
   flex 0 1 50%
   -webkit-flex 0 1 50%
   height auto
-  max-height 40vw
   flex-direction column
   justify-content space-around
   align-items flex-end
@@ -103,7 +102,9 @@ p.mem-desc-info
 
 .mem-values-info-wrapper
   width 80%
-  margin 2vw
+
+.mem-values-info-wrapper span.title-p
+  margin 1vw
 
 li.value-list-item
   font-size 18px
@@ -135,8 +136,7 @@ li.value-list-item
     flex-wrap wrap
 
   .mem-desc-img
-    height 40vw
-    max-height 70vw
+    height auto
 
   .mem-desc-text
     height auto
@@ -170,8 +170,7 @@ li.value-list-item
 
 @media(max-width 480px)
   .mem-desc-img,
-    height 40vh
-    max-height 40vw
+    height auto
 
   .mem-desc-text
     height auto
