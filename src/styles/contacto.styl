@@ -3,19 +3,18 @@ img.social-icon
   height 50px
 
 .contact-content
-  width 60%
+  width 85%
   margin-right auto
   display flex
   flex-direction row
-  justify-content space-between
-  background-color red
+  justify-content space-around
 
 form
-  width 100%
   height auto
   display flex
   flex-direction column
-  background-color red
+  width 35%
+  margin 3vw 0 0 0
 
 .input-section
   width 100%
@@ -23,19 +22,48 @@ form
   margin-right auto
   display flex
   flex-direction row
-  flex-wrap wrap
+  flex-wrap nowrap
   justify-content space-around
-  align-items center
-  background-color green
+  align-items flex-start
 
 input.send-data
   width 100px
   margin-left auto
+  border-radius 5px
+  border none
 
 .input-section span,.input-section input
   display flex
-  flex 0 1 20%
-  margin 2vw 0
+  width 50%
+  margin 0 0 2vw 0
+
+.info-contact a svg
+  margin 0 10px
+
+input.form-input,textarea
+  background-color rgb(230,230,230)
+  border-radius 5px
+  border none
+  outline none
+  padding 0 6px
+
+textarea
+  display flex
+  width 50%
+  margin 0 0 2vw 0
+  resize none
+
+input.send-data
+  margin-right 0%
+  background-color #e6e6e6
+
+.info-contact
+  margin 0 30px
+  margin-top 2vw
+  width 40%
+
+input.form-input.message-input
+  height 15vw
 
 .text-alert
   border 5px solid white
@@ -60,6 +88,45 @@ input.send-data
   top 1.5%
   cursor pointer
 
+.map
+  width 100%
+  height 20vw
+  margin 3vw 0 4vw 0
+
+.info-contact .st0
+  fill #23275f
+
+.info-contact .st1
+  fill white
+
+.info-contact svg
+  width 40px
+  height 40px
+  margin 0
+  padding 0
+
+.contact-top-text
+  width 100%
+  height auto
+
+.phoneNumber
+  color black
+
+span.input-text
+  width 15%
+
+@media(min-width 1440px)
+
+  .contact-content
+    width 55%
+
+@media (max-width 1024px)
+  .map
+    height 25vw
+
+  form
+    width 45%
+
 @media (max-width 768px)
   .text-alert
     width 60%
@@ -67,9 +134,85 @@ input.send-data
   .text-alert p
     font-size 28px
 
+  .map
+    height 50vw
+
+  .contact-content
+    flex-direction column
+    width 100%
+
+  form
+    width 100%
+
+  .info-contact
+    margin 0 auto
+    width 60%
+    margin-top 5vw
+
+  .input-section
+    width 45%
+    margin 0 auto
+    flex-direction column
+
+  textarea
+    width 96%
+
+  input.form-input
+    width 100%
+    padding .5vw 0
+
+  .info-contact svg
+    width 40px
+    height 50px
+
+  input.send-data
+    margin-right 28%
+
+  .contact-top-text
+    text-align center
+
+@media (max-width 640px)
+  .map
+    height 55vw
+
+  .input-section
+    width 60%
+
+  input.form-input
+    width 95%
+
+  textarea
+    width 92%
+
+  input.send-data
+    margin-right 22.5%
+
 @media (max-width 480px)
   .text-alert
     width 80%
 
   .text-alert p
     font-size 24px
+
+  .map
+    height 60vw
+
+  .input-section
+    width 70%
+
+  textarea.form-input.message-input
+    width 92%
+
+  input.send-data
+    margin-right 18%
+
+@media (max-width 320px)
+
+  .input-section
+    width 95%
+
+  textarea.form-input.message-input
+    width 90%
+
+  input.send-data
+    margin-right 7.5%
