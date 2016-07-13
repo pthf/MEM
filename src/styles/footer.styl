@@ -59,56 +59,79 @@ span.contact-text,span.contact-text a
   font-weight bold
   color $blue
 
-
 @media (max-width 768px)
+
   ul.nav-footer
-    width 50%
+    width 45%
 
-  .footer-top-left
-    width 40%
-    height auto
-
-  ul.data-list
-    padding-left 6vw  
+@media (max-width 640px)
 
   ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
     font-size 14px
 
-@media (max-width 640px)
+  .footer-wrapper
+    flex-direction column
+
+  .footer-top-right
+    width 100%
+
   ul.nav-footer
-    width 65%
+    padding-left 0
+    width 30%
+    margin 0 auto
+    text-align center
 
-  ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
-    font-size 12px
-
-  ul.social-list
-    width 70%
+  li.nav-footer-item
+    margin 1vw 0
 
   .footer-top-left
+    width 70%
+    margin 0 auto
+    margin 2vw 0
+
+  ul.data-list
     width 50%
+    margin 0 auto
+    padding: 0
+
+  ul.social-list
+    width 60%
+    padding 3vw 0
+    margin 0 auto
+
+  ul.nav-footer li.nav-footer-item
+    padding: 2vw 0
 
   span.contact-text,span.contact-text a
     font-size 16px
 
   ul.nav-footer
-    padding-left 6vw
+    width 40%
+
+  ul.data-list
+    text-align: center;
 
 @media (max-width 480px)
-
-  .footer-top-left
-    width 68%
-
-  ul.nav-footer
-    padding-left 8vw
-
-  ul.nav-footer li.nav-footer-item
-    padding 1.8vw 0
-
-  li.nav-footer-item
-    padding 1.5vw 0
 
   ul.data-list li.data-list-item, ul.nav-footer li.nav-footer-item
     font-size 12px
 
   span.contact-text,span.contact-text a
     font-size 14px
+
+  ul.nav-footer
+    width 70%
+
+  ul.data-list
+    width 100%
+
+  ul.social-list
+    width: 70%
+
+@media (max-width 320px)
+
+  ul.nav-footer
+    width 80%
+
+  ul.social-list
+    width: 100%

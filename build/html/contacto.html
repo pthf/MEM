@@ -3,14 +3,12 @@
   <head>
     <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medicina Empresarial en Movimiento - Notas</title>
-
-    <!-- CSS -->
+    <title>Medicina Empresarial en Movimiento - Contacto</title>
     <link rel="stylesheet" href="../css/main.css">
-
   </head>
   <body>
 
+  <!-- lightbox  -->
   <div class="background-lightbox">
     <div class="text-alert">
       <img src="../img/close-icon.svg" alt="">
@@ -149,7 +147,6 @@
 
   </div>
 
-
   <!-- Contact Us Bar -->
   <div class="contact-bar">
     <span class="contact-text">CONTÁCTANOS AL TELÉFONO: <a href="tel:3818 8000">3818 8000</a></span>
@@ -162,11 +159,11 @@
       <div class="footer-top-right">
         <ul class="nav-footer">
           <a href="../index.html"><li class="nav-footer-item"><span>Inicio</span></li></a>
-          <a href="html/quien.html"><li class="nav-footer-item"><span >Quiénes somos</span></li></a>
-          <a href="html/servicios.html"><li class="nav-footer-item"><span >Servicios</span></li></a>
-          <a href="html/instalaciones.html"><li class="nav-footer-item"><span>Instalaciones</span></li></a>
-          <a href="html/notas.html"><li class="nav-footer-item"><span>Notas</span></li></a>
-          <a href="html/contacto.html"><li class="nav-footer-item"><span>Contacto</span></li></a>
+          <a href="quien.html"><li class="nav-footer-item"><span >Quiénes somos</span></li></a>
+          <a href="servicios.html"><li class="nav-footer-item"><span >Servicios</span></li></a>
+          <a href="instalaciones.html"><li class="nav-footer-item"><span>Instalaciones</span></li></a>
+          <a href="notas.html"><li class="nav-footer-item"><span>Notas</span></li></a>
+          <a href="contacto.html"><li class="nav-footer-item"><span>Contacto</span></li></a>
         </ul>
       </div>
 
@@ -252,6 +249,7 @@
 
   <!-- JQuery  -->
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
   <!-- Responsive Menu Script -->
   <script type="text/javascript">
     var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
@@ -264,10 +262,12 @@
   <!-- PopUp submit -->
   <script type="text/javascript">
     $( "input.send-data" ).click(function() {
-      $('.background-lightbox').css('display', 'block');
+      $('.background-lightbox').css('opacity', '1');
+      $('.background-lightbox').css('z-index', '9');
     });
     $( ".text-alert img" ).click(function() {
-      $('.background-lightbox').css('display', 'none');
+      $('.background-lightbox').css('opacity', '0');
+      $('.background-lightbox').css('z-index', '-9');
     });
   </script>
 

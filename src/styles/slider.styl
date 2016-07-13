@@ -14,13 +14,13 @@ section.slider-wrapper {
 .arrow-left,
 .arrow-right {
   position: absolute;
-  top: 0;
   bottom: 0;
-  margin: auto;
-  width: 25px;
-  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0px;
+  height: 0px;
   z-index: 2;
-  color gray
+  color #00a6d5
   font-size: 40px;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -34,7 +34,7 @@ section.slider-wrapper {
 .touch-slider:hover > .arrow-right { opacity: 1; transition: all 0.7s ease;  }
 
 .arrow-right{
-  right: 2%;
+  right: 4%;
 }
 
 .arrow-left{
@@ -182,15 +182,14 @@ section.slider-wrapper {
 
   .arrow-left, .arrow-right{
     font-size: 25px;
-    top: 30%;
   }
 }
 
 @media (max-width: 480px){
 
   .touch-slider .arrow-left, .touch-slider .arrow-right {
-    width: 55px;
-    height: 100%;
+    width: 20px;
+    height:0;
     font-size: 23px;
     display: flex;
     flex-direction: column;

@@ -90,12 +90,15 @@ span.service-title-text
   align-items center
 
 .results-info-box
-  width 90%
+  width: 50%;
   height auto
   display flex
   flex-direction row
-  justify-content space-around
   align-items center
+  justify-content: space-around;
+
+.results-icon
+  width 60%
 
 .results-img
   width 60%
@@ -116,7 +119,7 @@ span.service-title-text
 
 span.results-info-text
   font-weight bold
-  font-size 34px
+  font-size 28px
   color #fff
 
 span.promo-text-info
@@ -125,8 +128,8 @@ span.promo-text-info
   color #fff
 
 .results-icon img,.promo-img img
-  width 125px
-  height 125px
+  width 105px
+  height 105px
 
 .promo-wrapper
   width 90%
@@ -154,10 +157,6 @@ span.promo-text-info
   justify-content space-around
   align-items center
 
-.promo-img img
-  width 80px
-  height 80px
-
 span.promo-text-info
   font-weight 700
   font-size 32px
@@ -172,7 +171,7 @@ div.promo-img
   width 130px
 
 div.promo-text
-  width 80%
+  width 50%
 
 @media(min-width 1440px)
   .results-icon img,.promo-img img
@@ -191,8 +190,12 @@ div.promo-text
     font-size 24px
 
   .results-icon img,.promo-img img
-    width 100px
-    height 120px
+    width 80px
+    height 80px
+
+  div.promo-text
+    width 70%
+
 
 @media (max-width 768px)
 
@@ -210,9 +213,9 @@ div.promo-text
     height 30vw
 
   .results-info-box
-    width 100%
+    width 50%
 
-  .promo-title-title-wrapper,.results-info-box
+  .promo-title-title-wrapper
     justify-content space-around
     width 90%
 
@@ -224,9 +227,12 @@ div.promo-text
     width 100%
     height 30vw
 
-  span.promo-text-info, span.results-info-text
+  span.promo-text-info
     font-size 20px
     width 50%
+
+  span.results-info-text
+    width 70%
 
   span.promo-text-info, span.results-info-text
     font-size 20px
@@ -257,6 +263,10 @@ div.promo-text
   h2
       font-size 16px
 
+  .results-info-box
+    width 75%
+    margin 0 auto
+
 @media (max-width 480px)
   h2
       font-size 14px
@@ -280,9 +290,6 @@ div.promo-text
   .opt-services-list-item:nth-child(4)
     flex 0 1 100%
 
-  .results-info-box
-    width 90%
-
   section.slider-wrapper
     padding-top 17vw
 
@@ -296,6 +303,15 @@ div.promo-text
     width 100px
     height 75px
 
+  .results-info-box
+    width 70%
+    margin 0 auto
+
+
 @media (max-width 320px)
   h2
       font-size 12px
+
+  .results-info-box
+    width 90%
+    margin 0 auto

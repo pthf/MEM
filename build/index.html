@@ -4,10 +4,7 @@
     <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Medicina Empresarial en Movimiento</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
-
   </head>
   <body>
 
@@ -84,12 +81,12 @@
     <span style="touch-action: manipulation" class="arrow-right" href="#"> > </span>
   </section>
 
-
   <!-- Contenido -->
   <div class="quien-top">
     <h2>SERVICIOS</h2>
   </div>
 
+  <!-- Selección de servicios -->
   <div class="opt-services">
     <div class="opt-services-list">
 
@@ -222,7 +219,6 @@
     </div>
   </div>
 
-
   <!-- Consulta tus resultados -->
   <div class="results-wrapper">
 
@@ -249,16 +245,15 @@
   <!-- Nuestras Promociones -->
   <div class="promo-wrapper">
     <div class="promo-title">
-      <div class="promo-title-title-wrapper">
-        <div class="promo-img">
-          <img src="img/icon-6.svg" >
+      <div class="results-info-box">
+        <div class="results-icon">
+          <img src="img/icon-6.svg">
         </div>
 
-        <div class="promo-text">
-          <span class="promo-text-info">NUESTRAS PROMOCIONES</span>
-        </div>
+        <span class="results-info-text">
+          NUESTRAS <br> PROMOCIONES
+        </span>
       </div>
-
     </div>
 
     <div class="promo-banners">
@@ -307,12 +302,10 @@
 
   </div>
 
-  <!-- Contact Us Bar -->
+  <!-- Contact Us Barra -->
   <div class="contact-bar">
     <span class="contact-text">CONTÁCTANOS AL TELÉFONO: <a href="tel:3818 8000">3818 8000</a></span>
   </div>
-
-  <!--  -->
 
   <!-- Footer -->
   <footer>
@@ -415,6 +408,7 @@
   <script type="text/javascript">
     var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
   </script>
+
   <!-- hover boxes -->
   <script type="text/javascript">
     $(".opt-services-list-item").mouseenter(function(){$(".service-icon svg .st0",this).css("fill","#fff"),$("span.service-title-text",this).css("color","#fff")}).mouseleave(function(){$("span.service-title-text",this).css("color","rgb(0,173,223)"),$(".service-icon svg .st0",this).css("fill","#66A8DD")});
@@ -422,7 +416,8 @@
 
   <!-- Initialize Swiper -->
   <script src="js/slider.js"></script>
-  <!-- Slider settings -->
+
+  <!-- Slider top settings -->
   <script type="text/javascript">
     var mySwiper = new Swiper('.swiper-container',{
       pagination: '.pagination',
