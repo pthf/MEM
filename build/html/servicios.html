@@ -56,7 +56,7 @@
           <div class="img-wrapper-info">
             <img src="../img/img-4-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.html">CONSULTAS <br> MEDICAS</a></span>
+              <span class="title-info"><a href="service-data.html">CONSULTAS <br> MÉDICAS</a></span>
                <a href="service-data.html" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -97,7 +97,15 @@
           </div>
 
           <div class="info-text-item">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <span class="info-text-item-title">LOREM IPSUM</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+
+            <span class="link-service"><a href="">LEER MÁS</a></span>
           </div>
         </section>
       </li>
@@ -113,7 +121,15 @@
           </div>
 
           <div class="info-text-item">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <span class="info-text-item-title">LOREM IPSUM</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+
+            <span class="link-service"><a href="">LEER MÁS</a></span>
           </div>
         </section>
       </li>
@@ -129,7 +145,15 @@
           </div>
 
           <div class="info-text-item">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <span class="info-text-item-title">LOREM IPSUM</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+
+            <span class="link-service"><a href="">LEER MÁS</a></span>
           </div>
         </section>
       </li>
@@ -145,7 +169,15 @@
           </div>
 
           <div class="info-text-item">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <span class="info-text-item-title">LOREM IPSUM</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+
+            <span class="link-service"><a href="">LEER MÁS</a></span>
           </div>
         </section>
       </li>
@@ -155,10 +187,43 @@
   </div>
 
   <style media="screen">
-  ul.accordion-wrapper{list-style: none; margin: 0; padding: 0; height: 479px;background-color: #ccc;margin: 1vw 0;}
-  ul.accordion-wrapper li.item-wrapper {float: left; height: 479px; width: 50px; overflow: hidden;border:1px solid #fff;}
-  ul.accordion-wrapper li.item-wrapper h3 {width: 400px;     overflow: hidden;     color: white;     text-align: center;     transform: rotate(-90deg);     margin: 0;     padding: 0; font-size: 38px;}
-  ul.accordion-wrapper li section.item-info-accordion {width: 450px;     float: left;     height: 479px;     background: #ccc;     position: relative;     display: flex;     flex-direction: row;}
+  ul.accordion-wrapper{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 479px;
+    background-color: white;
+    margin: 1vw 0;
+  }
+
+  ul.accordion-wrapper li.item-wrapper {
+    float: left;
+    height: 479px;
+    width: 50px;
+    overflow: hidden;
+    border:1px solid #fff;
+    background-color: #ccc;
+  }
+  ul.accordion-wrapper li.item-wrapper h3 {
+    width: 400px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    transform: rotate(-90deg);
+    margin: 0;
+    padding: 0;
+    font-size: 38px;
+  }
+
+  ul.accordion-wrapper li section.item-info-accordion {
+    width: 525px;
+    float: left;
+    height: 479px;
+    background: #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
 
   .vertical-bar {
     position: absolute;
@@ -178,12 +243,21 @@
       margin-left: 11%;
       width: 400%;
       height: 100%;
-      background: red;
   }
 
   .img-item img {
       width: 100%;
       height: 100%;
+  }
+
+  .info-text-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+  }
+
+  span.link-service, span.info-text-item-title, .info-text-item p {
+      margin-left: 30px;
   }
 
   </style>
@@ -289,7 +363,6 @@
 
   <!-- JQuery  -->
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
   <!-- Responsive Menu Script -->
   <script type="text/javascript">
     var icon=document.querySelector(".nav-icon"),show=!1;icon.onclick=function(){show?($(".mobile-nav").removeClass("fadeInDown"),$(".mobile-nav").addClass("fadeOutUp")):($(".mobile-nav").addClass("is-show"),$(".mobile-nav").addClass("fadeInDown"),$(".mobile-nav").removeClass("fadeOutUp")),show=!show};
@@ -297,28 +370,28 @@
 
   <script type="text/javascript">
     lastBlock = $("#a1");
-    maxWidth = 10;
-    minWidth = 1;
+    maxWidth = 763;
+    minWidth = 50;
 
     $("ul.accordion-wrapper li.item-wrapper").click(
 
     function() {
       if ($(this).width() == maxWidth) {
           $(this).animate({
-              width: minWidth + "%"
+              width: minWidth + "px"
           }, {
               queue: false,
               duration: 400
           });
       } else {
           $(lastBlock).animate({
-              width: minWidth + "%"
+              width: minWidth + "px"
           }, {
               queue: false,
               duration: 400
           });
           $(this).animate({
-              width: maxWidth + "%"
+              width: maxWidth + "px"
           }, {
               queue: false,
               duration: 400
@@ -327,7 +400,6 @@
       lastBlock = this;
     });
   </script>
-
 
   </body>
 </html>

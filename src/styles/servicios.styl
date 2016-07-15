@@ -50,7 +50,10 @@ a.ver-mas
 span.title-info a
   color white
 
-@media(min-width 1024px)
+span.info-text-item-title
+  font-size 17px
+
+@media(min-width 1025px)
   .text-title:hover span.title-info
     transform rotate(0deg)
     left 35%
@@ -59,13 +62,26 @@ span.title-info a
     width 79%
     transition 1s
 
+  ul.accordion-wrapper
+    display block
+
 @media(min-width 769px)
     a.ver-mas
       display none
 
+@media (max-width 1025px)
+
+  span.title-info
+    left -17px
+    font-size: 19px
+
 @media (max-width 1024px)
   span.title-info
     font-size 14px
+
+  ul.accordion-wrapper
+    display none
+
 
 @media (max-width 768px)
   .text-title
@@ -76,7 +92,6 @@ span.title-info a
     flex-direction column
     justify-content center
     align-items center
-
 
   span.title-info
     transform rotate(0deg)
@@ -92,10 +107,19 @@ span.title-info a
 
   .text-title
     width 90%
-@media (max-width 320px)
 
-  span.title-info
-    left 23%
+  span.title-info a
+    font-size: 32px
+
+@media (max-width 480px)
+
+  span.title-info a
+    font-size: 24px
 
   a.ver-mas
-    left 31%
+    left 33%
+
+@media (max-width 320px)
+
+  span.title-info a
+    font-size: 20px
