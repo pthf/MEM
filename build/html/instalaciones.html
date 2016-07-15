@@ -419,9 +419,9 @@
     var imgSelect; //Imagen seleccionada
     var nextImg; //Imagen Siguiente
     var prevImg; //Imagen Anterior
-    var srcSelect;
-    var idSelect;
-    var listNumber;
+    var srcSelect; //Ruta de la img
+    var idSelect; //id de la img
+    var listNumber; //Numero de imgs
 
     //Obtiene la imagen siguiente
     function GetNextImg(){
@@ -430,8 +430,7 @@
       $("#imgCurrent").attr("src", srcSelect);
       imgSelect = nextImg;
       idSelect = imgSelect.attr('id');
-      console.log(idSelect);
-      checkLastNPrev()
+      checkLastNPrev();
     }
 
     //Obtiene la imagen anterior
@@ -441,7 +440,6 @@
       $("#imgCurrent").attr("src", srcSelect);
       imgSelect = prevImg;
       idSelect = imgSelect.attr('id');
-      console.log(idSelect);
       checkLastNPrev()
     }
 
@@ -458,9 +456,6 @@
         $("#imgCurrent").attr("src", srcSelect);
         GetLengthList();
         checkLastNPrev();
-        console.log(imgSelect);
-        console.log(srcSelect);
-        console.log(idSelect);
       });
     }
 
@@ -484,14 +479,12 @@
     }
 
     function GetLengthList(){
-
       listNumber = $(imgSelect).parent().children().length;
       console.log(listNumber);
     }
 
     function checkLastNPrev() {
       if (idSelect >= listNumber) {
-        console.log('block next');
         $('.right-img').css('display','none')
       }
       else {
@@ -499,46 +492,14 @@
       };
 
       if (idSelect <= listNumber-listNumber+1) {
-        console.log('block prev');
         $('.left-img').css('display','none')
       }
       else {
         $('.left-img').css('display','block')
       };
     }
-
     GetCurrentImg();
     CloseLightbox();
-
-    $("html").keydown(function(e){
-        // left arrow
-        if ((e.keyCode || e.which) == 37)
-        {
-          if (idSelect >= listNumber) {
-            $('.right-img').css('display','none')
-          }
-          else {
-            $('.right-img').css('display','block')
-            GetPrevImg();
-          };
-        }
-
-
-        // right arrow
-        if ((e.keyCode || e.which) == 39)
-        {
-          if (idSelect <= listNumber-listNumber+1) {
-            console.log('block prev');
-            $('.left-img').css('display','none')
-          }
-          else {
-            $('.left-img').css('display','block')
-            GetNextImg();
-          };
-        }
-
-    });
-
   </script>
 
   <style media="screen">

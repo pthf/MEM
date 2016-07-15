@@ -5,7 +5,7 @@
   flex-wrap wrap
   width 100%
   height auto
-  justify-content center
+  justify-content flex-start
   align-items center
 
 .img-wrapper-info
@@ -72,9 +72,17 @@ span.title-info a
     width 79%
     height 99.5%
     transition 1s
+    display: flex;
+    flex-direction column
+    justify-content center
+    align-items center
+
 
   span.title-info
     transform rotate(0deg)
+    position relative
+    left 0
+    top 0
 
   .img-wrapper-info
     width 49%
@@ -84,10 +92,6 @@ span.title-info a
 
   .text-title
     width 90%
-
-  span.title-info
-    left 35%
-
 @media (max-width 320px)
 
   span.title-info
