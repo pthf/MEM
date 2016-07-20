@@ -5,7 +5,7 @@
   flex-wrap wrap
   width 100%
   height auto
-  justify-content flex-start
+  justify-content center
   align-items center
 
 .img-wrapper-info
@@ -25,18 +25,32 @@
   top 0
   left 0
   padding 0 2.4vw
-  transition 1s
-  text-align left
+  transition .3s
+  text-align center
 
 
 span.title-info
-  transform rotate(-90deg)
-  position absolute
-  top 50%
-  left -9px
-  color #fff
-  font-size 22px
-  transition .5s
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 50%;
+  left: -97px;
+  color: #fff;
+  font-size: 22px;
+  transition: 1s;
+  width: 260px;
+
+span.subtitle-info
+  position: absolute;
+  top: 36%;
+  width: 100%
+  left: 0%
+  color: #fff;
+  font-size: 16px;
+  transition: 1s;
+  opacity 0
+
+span.subtitle-info a
+  color white
 
 a.ver-mas
   position absolute
@@ -44,43 +58,70 @@ a.ver-mas
   left 36%
   border 2px solid white
   color white
-  padding 2vw
+  padding 1.5vw
   font-size 12px
+  transition linear .3s
+  opacity 0
+
+a.ver-mas:hover
+  border: 2px solid black;
+  color: black;
 
 span.title-info a
   color white
 
+
+
 span.info-text-item-title
   font-size 17px
+
+@media(min-width 1680px)
+  span.title-info
+    left -80px
+    font-size 28px
+
+
+@media(min-width 1366px)
+  span.title-info
+    left -86px
+    font-size 26px
 
 @media(min-width 1025px)
   .text-title:hover span.title-info
     transform rotate(0deg)
-    left 35%
+    left: 0;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+
+  .text-title:hover a.ver-mas
+    opacity 1
+
+  .text-title:hover span.subtitle-info
+    opacity 1
 
   .text-title:hover
     width 79%
     transition 1s
 
   ul.accordion-wrapper
-    display block
-
-@media(min-width 769px)
-    a.ver-mas
-      display none
+    display flex
 
 @media (max-width 1025px)
 
   span.title-info
-    left -17px
-    font-size: 19px
+    font-size 19px
 
 @media (max-width 1024px)
   span.title-info
     font-size 14px
 
   ul.accordion-wrapper
-    display none
+    display none !important
+
+@media(min-width 769px)
+    a.ver-mas
+      opacity 0
 
 
 @media (max-width 768px)
@@ -95,9 +136,12 @@ span.info-text-item-title
 
   span.title-info
     transform rotate(0deg)
-    position relative
-    left 0
-    top 0
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+
 
   .img-wrapper-info
     width 49%
@@ -110,6 +154,12 @@ span.info-text-item-title
 
   span.title-info a
     font-size: 32px
+
+  span.subtitle-info,a.ver-mas
+    opacity: 1
+
+  a.ver-mas
+    padding: 2.5vw
 
 @media (max-width 480px)
 
