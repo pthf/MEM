@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">BAUDEO SERVICES</h3>
+				<h3 class="panel-title">MEM SERVICES</h3>
 			</div>
 			<div class="panel panel-body" ng-controller="serviceDescription">
 				<ul class="nav nav-tabs">

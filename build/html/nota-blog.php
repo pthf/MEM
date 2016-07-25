@@ -11,8 +11,6 @@ if(!mysql_num_rows($result)>0)
 }else{
   header('Location: ../index.php');
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>

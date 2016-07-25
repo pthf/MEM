@@ -77,8 +77,7 @@ connect_base_de_datos();
     <div class="opt-services-list">
 
       <!-- item services -->
-
-      <div class="opt-services-list-item" onclick="location.href='html/servicios.php';">
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=16';">
         <div class="service-icon">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
@@ -110,13 +109,18 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <span class="service-title-text">LOREM IPSUM DOLOR SIT AMETZ</span>
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 16";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
 
       </div>
 
       <!-- item services -->
-      <div class="opt-services-list-item" onclick="location.href='html/servicios.php';">
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=17';">
         <div class="service-icon">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
@@ -131,12 +135,17 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <span class="service-title-text">LOREM IPSUM DOLOR SIT AMETZ</span>
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 17";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
       </div>
 
       <!-- item services -->
-      <div class="opt-services-list-item" onclick="location.href='html/servicios.php';">
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=18';">
         <div class="service-icon third">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
@@ -164,12 +173,17 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <span class="service-title-text">LOREM IPSUM DOLOR SIT AMETZ</span>
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 18";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
       </div>
 
       <!-- item services -->
-      <div class="opt-services-list-item" onclick="location.href='html/servicios.php';">
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=19';">
         <div class="service-icon">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
@@ -194,10 +208,143 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <span class="service-title-text">LOREM IPSUM DOLOR SIT AMETZ</span>
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 19";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
       </div>
 
+      <!-- item services -->
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=20';">
+        <div class="service-icon">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
+          <path id="XMLID_197_" class="st0" d="M99.8,97.9v-1.7V81.9v0l0,0l0-0.2l0-0.1l0-0.1c-0.4-4.9-4.8-14.2-19.1-14.2
+            c-14.2,0-18.9,9.1-19.4,14l0,0.2v0.2l0,20.5c-0.1,1.3-1,5.3-7.7,5.3c-6.9,0-8-5.2-8.2-7V83.9v-1.1c1.9-1.1,3.2-3,3.7-5.2l0.7-0.1
+            c2.7-0.5,5.3-1.4,7.6-2.4c6.4-3,11-7.8,13.4-14c4.9-12.7,5.6-27.6,5.6-35.4c0-7.7-2.2-13.6-6.6-17.6C65,3.7,59.2,3.3,57,3.3
+            c-0.4,0-0.7,0-1.1,0c-1.5,0.1-2.8,0.8-3.8,2c-0.9,1.1-1.4,2.6-1.3,4.1c0.3,2.9,2.6,5,5.5,5c0.2,0,0.3,0,0.5,0c0,0,0,0,0,0
+            c0,0,0.1,0,0.1,0c0.8,0,3.4,0.1,5.3,1.9c2,1.8,3,4.9,3,9.4c0,12.1-1.7,23.3-4.9,31.4c-0.7,1.7-3.5,7.6-12.1,9.5l-0.8,0.2
+            c-1.4-1.8-3.7-3-6.2-3h-2.8c-2.5,0-4.8,1.2-6.2,3.1l-0.8-0.2c-2.2-0.5-9.8-2.5-12.5-9.5C15.8,48.9,14,37.7,14,25.6
+            c0-4.4,1-7.5,2.9-9.3c1.9-1.8,4.6-1.9,5.4-1.9c0.1,0,0.1,0,0.2,0c0.1,0,0.3,0,0.4,0c2.9,0,5.2-2.2,5.5-5.1c0.1-1.5-0.3-2.9-1.3-4.1
+            c-0.9-1.1-2.3-1.8-3.8-2c-0.2,0-0.6,0-1.1,0c-2.3,0-8.1,0.5-12.8,4.8c-4.4,4-6.6,9.9-6.6,17.6c0,7.8,0.7,22.7,5.6,35.4
+            c2.4,6.2,7,11,13.4,14c2.4,1.1,5.2,2,8.1,2.5l0.7,0.1c0.5,2.1,1.7,3.9,3.5,5v1.1v16.8v0l0,0l0,0.2l0,0.1l0,0
+            c0,0.2,1.4,17.5,19.3,17.5c18.1,0,18.8-15.9,18.8-16l0,0v0V82.4c0.2-0.9,1.6-4,8.4-4c6.8,0,7.9,3.1,8,3.8v13.9v1.5
+            c-2.1,1.6-3.4,4.1-3.4,7c0,4.9,4,8.8,8.8,8.8c4.9,0,8.8-4,8.8-8.8C103,101.9,101.7,99.5,99.8,97.9z M63.1,58.1
+            c3.3-8.5,5.1-20,5.1-32.5c0-5.3-1.3-9.2-3.9-11.6c-1.1-1-2.4-1.6-3.5-2c0.7-0.9,1.2-2,1.2-3.2c0-0.7-0.1-1.4-0.4-2
+            c2,0.6,4.2,1.6,6.3,3.4c3.7,3.4,5.6,8.6,5.6,15.4c0,7.6-0.7,22.1-5.4,34.4c-2.1,5.4-6.2,9.7-11.9,12.4c-2.1,1-4.5,1.7-6.9,2.2v-3
+            c0-0.8-0.1-1.5-0.3-2.2C56.7,67.7,61.4,62.7,63.1,58.1z M30.5,71.6v3c-2.6-0.5-5.1-1.2-7.3-2.3c-5.7-2.6-9.8-6.9-11.9-12.4
+            C6.6,47.7,5.9,33.2,5.9,25.6c0-6.8,1.9-12,5.6-15.4c2-1.9,4.3-2.9,6.3-3.4c-0.3,0.6-0.4,1.3-0.4,2c0,1.2,0.4,2.3,1.1,3.2
+            c-1.2,0.4-2.5,1-3.6,2.1c-2.6,2.4-3.9,6.3-3.9,11.5c0,12.5,1.8,24,5.1,32.5c1.8,4.7,6.6,9.7,14.7,11.4
+            C30.7,70.2,30.5,70.9,30.5,71.6z M34.5,75.1v-3.5c0-0.6,0.1-1.1,0.3-1.6c0.6-1.4,2-2.4,3.6-2.4h2.8c1.6,0,3,1,3.6,2.3
+            c0.2,0.5,0.4,1,0.4,1.6v3.5V76c0,1.8-1.2,3.3-2.9,3.8C42,79.9,41.7,80,41.3,80h-2.8c-0.4,0-0.9-0.1-1.3-0.2c-1.6-0.5-2.7-2-2.7-3.7
+            V75.1z M80.7,75.5c-9.8,0-11.2,5.8-11.3,6.6v20.3c0,0.1-0.6,13.2-15.8,13.2c-15.2,0-16.3-14.6-16.3-14.7l0-0.2V83.8
+            c0.4,0.1,0.8,0.1,1.3,0.1h2.8c0.4,0,0.7,0,1.1-0.1v16.7c0.1,1.3,1.2,9.8,11.2,9.8c9.9,0,10.6-7.1,10.7-8.1l0-20.6
+            c0.4-3.9,4.4-11.3,16.5-11.3c12.1,0,15.9,7.5,16.2,11.4l0,0.2v14.3c-0.9-0.3-1.8-0.4-2.7-0.4c-0.8,0-1.7,0.1-2.4,0.3V82
+            C91.6,81.2,90.5,75.5,80.7,75.5z M94.1,109.5c-2.7,0-4.9-2.2-4.9-4.9c0-1.8,1-3.4,2.5-4.2c0.7-0.4,1.5-0.7,2.4-0.7
+            c1,0,2,0.3,2.7,0.8c1.3,0.9,2.2,2.4,2.2,4.1C99,107.3,96.8,109.5,94.1,109.5z"/>
+          </svg>
+
+        </div>
+
+        <div class="service-title">
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 20";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
+        </div>
+
+      </div>
+
+      <!-- item services -->
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=21';">
+        <div class="service-icon">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
+          <path id="XMLID_197_" class="st0" d="M99.8,97.9v-1.7V81.9v0l0,0l0-0.2l0-0.1l0-0.1c-0.4-4.9-4.8-14.2-19.1-14.2
+            c-14.2,0-18.9,9.1-19.4,14l0,0.2v0.2l0,20.5c-0.1,1.3-1,5.3-7.7,5.3c-6.9,0-8-5.2-8.2-7V83.9v-1.1c1.9-1.1,3.2-3,3.7-5.2l0.7-0.1
+            c2.7-0.5,5.3-1.4,7.6-2.4c6.4-3,11-7.8,13.4-14c4.9-12.7,5.6-27.6,5.6-35.4c0-7.7-2.2-13.6-6.6-17.6C65,3.7,59.2,3.3,57,3.3
+            c-0.4,0-0.7,0-1.1,0c-1.5,0.1-2.8,0.8-3.8,2c-0.9,1.1-1.4,2.6-1.3,4.1c0.3,2.9,2.6,5,5.5,5c0.2,0,0.3,0,0.5,0c0,0,0,0,0,0
+            c0,0,0.1,0,0.1,0c0.8,0,3.4,0.1,5.3,1.9c2,1.8,3,4.9,3,9.4c0,12.1-1.7,23.3-4.9,31.4c-0.7,1.7-3.5,7.6-12.1,9.5l-0.8,0.2
+            c-1.4-1.8-3.7-3-6.2-3h-2.8c-2.5,0-4.8,1.2-6.2,3.1l-0.8-0.2c-2.2-0.5-9.8-2.5-12.5-9.5C15.8,48.9,14,37.7,14,25.6
+            c0-4.4,1-7.5,2.9-9.3c1.9-1.8,4.6-1.9,5.4-1.9c0.1,0,0.1,0,0.2,0c0.1,0,0.3,0,0.4,0c2.9,0,5.2-2.2,5.5-5.1c0.1-1.5-0.3-2.9-1.3-4.1
+            c-0.9-1.1-2.3-1.8-3.8-2c-0.2,0-0.6,0-1.1,0c-2.3,0-8.1,0.5-12.8,4.8c-4.4,4-6.6,9.9-6.6,17.6c0,7.8,0.7,22.7,5.6,35.4
+            c2.4,6.2,7,11,13.4,14c2.4,1.1,5.2,2,8.1,2.5l0.7,0.1c0.5,2.1,1.7,3.9,3.5,5v1.1v16.8v0l0,0l0,0.2l0,0.1l0,0
+            c0,0.2,1.4,17.5,19.3,17.5c18.1,0,18.8-15.9,18.8-16l0,0v0V82.4c0.2-0.9,1.6-4,8.4-4c6.8,0,7.9,3.1,8,3.8v13.9v1.5
+            c-2.1,1.6-3.4,4.1-3.4,7c0,4.9,4,8.8,8.8,8.8c4.9,0,8.8-4,8.8-8.8C103,101.9,101.7,99.5,99.8,97.9z M63.1,58.1
+            c3.3-8.5,5.1-20,5.1-32.5c0-5.3-1.3-9.2-3.9-11.6c-1.1-1-2.4-1.6-3.5-2c0.7-0.9,1.2-2,1.2-3.2c0-0.7-0.1-1.4-0.4-2
+            c2,0.6,4.2,1.6,6.3,3.4c3.7,3.4,5.6,8.6,5.6,15.4c0,7.6-0.7,22.1-5.4,34.4c-2.1,5.4-6.2,9.7-11.9,12.4c-2.1,1-4.5,1.7-6.9,2.2v-3
+            c0-0.8-0.1-1.5-0.3-2.2C56.7,67.7,61.4,62.7,63.1,58.1z M30.5,71.6v3c-2.6-0.5-5.1-1.2-7.3-2.3c-5.7-2.6-9.8-6.9-11.9-12.4
+            C6.6,47.7,5.9,33.2,5.9,25.6c0-6.8,1.9-12,5.6-15.4c2-1.9,4.3-2.9,6.3-3.4c-0.3,0.6-0.4,1.3-0.4,2c0,1.2,0.4,2.3,1.1,3.2
+            c-1.2,0.4-2.5,1-3.6,2.1c-2.6,2.4-3.9,6.3-3.9,11.5c0,12.5,1.8,24,5.1,32.5c1.8,4.7,6.6,9.7,14.7,11.4
+            C30.7,70.2,30.5,70.9,30.5,71.6z M34.5,75.1v-3.5c0-0.6,0.1-1.1,0.3-1.6c0.6-1.4,2-2.4,3.6-2.4h2.8c1.6,0,3,1,3.6,2.3
+            c0.2,0.5,0.4,1,0.4,1.6v3.5V76c0,1.8-1.2,3.3-2.9,3.8C42,79.9,41.7,80,41.3,80h-2.8c-0.4,0-0.9-0.1-1.3-0.2c-1.6-0.5-2.7-2-2.7-3.7
+            V75.1z M80.7,75.5c-9.8,0-11.2,5.8-11.3,6.6v20.3c0,0.1-0.6,13.2-15.8,13.2c-15.2,0-16.3-14.6-16.3-14.7l0-0.2V83.8
+            c0.4,0.1,0.8,0.1,1.3,0.1h2.8c0.4,0,0.7,0,1.1-0.1v16.7c0.1,1.3,1.2,9.8,11.2,9.8c9.9,0,10.6-7.1,10.7-8.1l0-20.6
+            c0.4-3.9,4.4-11.3,16.5-11.3c12.1,0,15.9,7.5,16.2,11.4l0,0.2v14.3c-0.9-0.3-1.8-0.4-2.7-0.4c-0.8,0-1.7,0.1-2.4,0.3V82
+            C91.6,81.2,90.5,75.5,80.7,75.5z M94.1,109.5c-2.7,0-4.9-2.2-4.9-4.9c0-1.8,1-3.4,2.5-4.2c0.7-0.4,1.5-0.7,2.4-0.7
+            c1,0,2,0.3,2.7,0.8c1.3,0.9,2.2,2.4,2.2,4.1C99,107.3,96.8,109.5,94.1,109.5z"/>
+          </svg>
+
+        </div>
+
+        <div class="service-title">
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 21";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
+        </div>
+
+      </div>
+
+      <!-- item services -->
+      <div class="opt-services-list-item" onclick="location.href='html/service-data.php?idservices=22';">
+        <div class="service-icon">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 105.9 121.8" style="enable-background:new 0 0 105.9 121.8;" xml:space="preserve">
+          <path id="XMLID_197_" class="st0" d="M99.8,97.9v-1.7V81.9v0l0,0l0-0.2l0-0.1l0-0.1c-0.4-4.9-4.8-14.2-19.1-14.2
+            c-14.2,0-18.9,9.1-19.4,14l0,0.2v0.2l0,20.5c-0.1,1.3-1,5.3-7.7,5.3c-6.9,0-8-5.2-8.2-7V83.9v-1.1c1.9-1.1,3.2-3,3.7-5.2l0.7-0.1
+            c2.7-0.5,5.3-1.4,7.6-2.4c6.4-3,11-7.8,13.4-14c4.9-12.7,5.6-27.6,5.6-35.4c0-7.7-2.2-13.6-6.6-17.6C65,3.7,59.2,3.3,57,3.3
+            c-0.4,0-0.7,0-1.1,0c-1.5,0.1-2.8,0.8-3.8,2c-0.9,1.1-1.4,2.6-1.3,4.1c0.3,2.9,2.6,5,5.5,5c0.2,0,0.3,0,0.5,0c0,0,0,0,0,0
+            c0,0,0.1,0,0.1,0c0.8,0,3.4,0.1,5.3,1.9c2,1.8,3,4.9,3,9.4c0,12.1-1.7,23.3-4.9,31.4c-0.7,1.7-3.5,7.6-12.1,9.5l-0.8,0.2
+            c-1.4-1.8-3.7-3-6.2-3h-2.8c-2.5,0-4.8,1.2-6.2,3.1l-0.8-0.2c-2.2-0.5-9.8-2.5-12.5-9.5C15.8,48.9,14,37.7,14,25.6
+            c0-4.4,1-7.5,2.9-9.3c1.9-1.8,4.6-1.9,5.4-1.9c0.1,0,0.1,0,0.2,0c0.1,0,0.3,0,0.4,0c2.9,0,5.2-2.2,5.5-5.1c0.1-1.5-0.3-2.9-1.3-4.1
+            c-0.9-1.1-2.3-1.8-3.8-2c-0.2,0-0.6,0-1.1,0c-2.3,0-8.1,0.5-12.8,4.8c-4.4,4-6.6,9.9-6.6,17.6c0,7.8,0.7,22.7,5.6,35.4
+            c2.4,6.2,7,11,13.4,14c2.4,1.1,5.2,2,8.1,2.5l0.7,0.1c0.5,2.1,1.7,3.9,3.5,5v1.1v16.8v0l0,0l0,0.2l0,0.1l0,0
+            c0,0.2,1.4,17.5,19.3,17.5c18.1,0,18.8-15.9,18.8-16l0,0v0V82.4c0.2-0.9,1.6-4,8.4-4c6.8,0,7.9,3.1,8,3.8v13.9v1.5
+            c-2.1,1.6-3.4,4.1-3.4,7c0,4.9,4,8.8,8.8,8.8c4.9,0,8.8-4,8.8-8.8C103,101.9,101.7,99.5,99.8,97.9z M63.1,58.1
+            c3.3-8.5,5.1-20,5.1-32.5c0-5.3-1.3-9.2-3.9-11.6c-1.1-1-2.4-1.6-3.5-2c0.7-0.9,1.2-2,1.2-3.2c0-0.7-0.1-1.4-0.4-2
+            c2,0.6,4.2,1.6,6.3,3.4c3.7,3.4,5.6,8.6,5.6,15.4c0,7.6-0.7,22.1-5.4,34.4c-2.1,5.4-6.2,9.7-11.9,12.4c-2.1,1-4.5,1.7-6.9,2.2v-3
+            c0-0.8-0.1-1.5-0.3-2.2C56.7,67.7,61.4,62.7,63.1,58.1z M30.5,71.6v3c-2.6-0.5-5.1-1.2-7.3-2.3c-5.7-2.6-9.8-6.9-11.9-12.4
+            C6.6,47.7,5.9,33.2,5.9,25.6c0-6.8,1.9-12,5.6-15.4c2-1.9,4.3-2.9,6.3-3.4c-0.3,0.6-0.4,1.3-0.4,2c0,1.2,0.4,2.3,1.1,3.2
+            c-1.2,0.4-2.5,1-3.6,2.1c-2.6,2.4-3.9,6.3-3.9,11.5c0,12.5,1.8,24,5.1,32.5c1.8,4.7,6.6,9.7,14.7,11.4
+            C30.7,70.2,30.5,70.9,30.5,71.6z M34.5,75.1v-3.5c0-0.6,0.1-1.1,0.3-1.6c0.6-1.4,2-2.4,3.6-2.4h2.8c1.6,0,3,1,3.6,2.3
+            c0.2,0.5,0.4,1,0.4,1.6v3.5V76c0,1.8-1.2,3.3-2.9,3.8C42,79.9,41.7,80,41.3,80h-2.8c-0.4,0-0.9-0.1-1.3-0.2c-1.6-0.5-2.7-2-2.7-3.7
+            V75.1z M80.7,75.5c-9.8,0-11.2,5.8-11.3,6.6v20.3c0,0.1-0.6,13.2-15.8,13.2c-15.2,0-16.3-14.6-16.3-14.7l0-0.2V83.8
+            c0.4,0.1,0.8,0.1,1.3,0.1h2.8c0.4,0,0.7,0,1.1-0.1v16.7c0.1,1.3,1.2,9.8,11.2,9.8c9.9,0,10.6-7.1,10.7-8.1l0-20.6
+            c0.4-3.9,4.4-11.3,16.5-11.3c12.1,0,15.9,7.5,16.2,11.4l0,0.2v14.3c-0.9-0.3-1.8-0.4-2.7-0.4c-0.8,0-1.7,0.1-2.4,0.3V82
+            C91.6,81.2,90.5,75.5,80.7,75.5z M94.1,109.5c-2.7,0-4.9-2.2-4.9-4.9c0-1.8,1-3.4,2.5-4.2c0.7-0.4,1.5-0.7,2.4-0.7
+            c1,0,2,0.3,2.7,0.8c1.3,0.9,2.2,2.4,2.2,4.1C99,107.3,96.8,109.5,94.1,109.5z"/>
+          </svg>
+
+        </div>
+
+        <div class="service-title">
+          <?php 
+          $query = "SELECT * FROM services WHERE idservices = 22";
+          $result = mysql_query($query) or die(mysql_error());
+          $row = mysql_fetch_array($result);
+          ?>
+          <span class="service-title-text"><?php echo $row['servicesName']?></span>
+        </div>
+
+      </div>
 
     </div>
   </div>

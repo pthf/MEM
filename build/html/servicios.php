@@ -1,3 +1,7 @@
+<?php 
+include("../admin/php/connect_bd.php"); 
+connect_base_de_datos();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -49,18 +53,28 @@
           <div class="img-wrapper-info">
             <img src="../img/img-1-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Exámenes de ruido</a></span>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 16";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"><a href="service-data.php">Audiometrias aérea <br> Audiometrias óseas</a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+               <a href="service-data.php?idservices=16" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
           <div class="img-wrapper-info">
             <img src="../img/img-4-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Espirometrias</a></span>
-              <span class="subtitle-info"><a href="service-data.php">long subtitle text</a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 17";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info"><a href="service-data.php"> </a></span>
+               <a href="service-data.php?idservices=17" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
@@ -68,9 +82,14 @@
           <div class="img-wrapper-info">
             <img src="../img/img-3-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Laboratorio</a></span>
-              <span class="subtitle-info"><a href="service-data.php">long subtitle text</a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 18";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info"><a href="service-data.php"> </a></span>
+               <a href="service-data.php?idservices=18" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
@@ -78,9 +97,14 @@
           <div class="img-wrapper-info">
             <img src="../img/img-2-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Gabinete</a></span>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 19";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"><a href="service-data.php">Rayos x, densitometrias, <br> resonancias magnéticas, tomógrafias, <br> ecosonogramas, etc.</a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+               <a href="service-data.php?idservices=19" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
@@ -88,14 +112,19 @@
           <div class="img-wrapper-info">
             <img src="../img/img-4-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Check up's</a></span>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 20";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"><a href="service-data.php">
                 Chequeos dirigidos <br>
                 Chequeos periódicos <br>
                 Chequeos ejecutivos <br>
                 Chequeos cardiovasculares <br>
             </a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+               <a href="service-data.php?idservices=20" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
@@ -103,13 +132,18 @@
           <div class="img-wrapper-info">
             <img src="../img/img-1-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Exámenes médicos</a></span>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 21";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"><a href="service-data.php">
                 Periódicos <br>
                 Admisión <br>
                 Cédula h
               </a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+               <a href="service-data.php?idservices=21" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
@@ -117,14 +151,19 @@
           <div class="img-wrapper-info">
             <img src="../img/img-2-01.png" >
             <div class="text-title ">
-              <span class="title-info"><a href="service-data.php">Campañas de Salud</a></span>
+              <?php 
+              $query = "SELECT * FROM services WHERE idservices = 22";
+              $result = mysql_query($query) or die(mysql_error());
+              $row = mysql_fetch_array($result);
+              ?>
+              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"><a href="service-data.php">
                 Pláticas de prevención alimenticia <br>
                 Pláticas de salud visual <br>
                 Campañas de vacunación <br>
                 Pláticas de prevención de PH Cancer cervicouterino.
               </a></span>
-               <a href="service-data.php" class="ver-mas"><span>VER MÁS</span></a>
+               <a href="service-data.php?idservices=22" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
 
