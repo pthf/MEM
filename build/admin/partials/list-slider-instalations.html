@@ -1,0 +1,59 @@
+<div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Image Name</th>
+        <th>URL</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(key, data) in sliderElements">
+        <th>{{data.idbannersInstalations}}</th>
+        <th>{{data.bannersInstalationsName}}</th>
+        <th>{{data.bannersInstalationsUrl}}</th>
+        <th><img src="../src/images/sliderInstalations/{{data.bannersInstalationsImage}}" width="50%;" height="auto;"></th>
+        <th>{{data.bannersInstalationsDescription}}</th>
+        <th><span class="label label-danger deleteImage" data-id='{{data.idbannersInstalations}}' style="cursor:pointer">Delete</span></th>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <br>
+  <div class="col-md-5">
+    <form class="form-horizontal" enctype="multipart/form-data" id="insertImageSliderInstalations">
+      <div class="form-group">
+        <label for="instalations-name" class="col-sm-12 control-label">Image Name *</label>
+        <div class="col-sm-12">
+          <input required type="text" class="form-control" id="instalations-name" placeholder="Insert a name" name="instalations-name"></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="instalations-url" class="col-sm-12 control-label">Image URL *</label>
+        <div class="col-sm-12">
+          <input required type="text" class="form-control" id="instalations-url" placeholder="Insert a url" name="instalations-url"></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="instalations-description" class="col-sm-12 control-label">Team Description *</label>
+        <div class="col-sm-12">
+          <textarea required type="text" class="form-control" id="instalations-description" placeholder="Insert a instalations description" style="height: 220px" name="instalations-description"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="insertImageSliderInstalations" class="col-sm-12 control-label" style="text-align: left;">Image Slider Instalations *</label>
+        <div class="col-sm-12">
+          <input required type="file" class="form-control" id="insertImageSliderInstalations" name="insertImageSliderInstalations[]"></input>
+          <input type="submit" class="btn btn-default" value="Add"  name="" style="margin-top: 10px;"></input>
+          <input type="text" style="display:none"></input>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>

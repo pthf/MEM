@@ -3,21 +3,22 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>title</th>
-        <th>description</th>
-        <th>categories</th>
-        <th>actions</th>
+        <th>Name Note</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>action</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="(key, projectListData) in projectList">
-        <th>{{projectListData.idProject}}</th>
-        <th>{{projectListData.titleProject}}</th>
-        <th>{{projectListData.descriptionProject}}</th>
-        <th><span ng-repeat="(key, listCategory) in projectListData.elementsCategory">{{listCategory.nameCategory | uppercase}}<span ng-hide="$last">, </span><span ng-show="$last">. </span></span></th>
+        {{projectListData}}
+        <th>{{projectListData.idnotes}}</th>
+        <th>{{projectListData.notesName}}</th>
+        <th>{{projectListData.notesDescription}}</th>
+        <th>{{projectListData.notesDate}}</th>
         <th>
-          <a href="#/project/{{projectListData.idProject}}"><span class="label label-default" style="cursor:pointer">Details</span></a>
-		  		<span class="label label-danger deleteProject" data-id='{{projectListData.idProject}}' data-gallery='{{projectListData.idGalleryRelation}}' style="cursor:pointer">Delete</span>
+          <a href="#/project/{{projectListData.idnotes}}"><span class="label label-default" style="cursor:pointer">Details</span></a>
+          <span class="label label-danger deleteProject" data-id='{{projectListData.idnotes}}' data-gallery='{{projectListData.idnotes}}' style="cursor:pointer">Delete</span>
         </th>
       </tr>
     </tbody>

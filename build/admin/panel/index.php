@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="baudeoPanel">
 <head>
-	<title>BAUDEO |  PANEL</title>
+	<title>MEM |  PANEL</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link href="./../src/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./../css/main.css">

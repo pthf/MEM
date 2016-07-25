@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">BAUDEO SLIDER HOME</h3>
+				<h3 class="panel-title">MEM SLIDER HOME</h3>
 			</div>
 
 

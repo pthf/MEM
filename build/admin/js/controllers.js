@@ -9,6 +9,10 @@
       case '/service': $scope.selected = 2;  break;
       case '/slider-home': $scope.selected = 3;  break;
       case '/slider-promotions': $scope.selected = 4;  break;
+      case '/slider-equipment': $scope.selected = 5;  break;
+      case '/slider-instalations': $scope.selected = 6;  break;
+      case '/slider-material': $scope.selected = 7;  break;
+      case '/slider-personal': $scope.selected = 8;  break;
 		}
 		$scope.changeNav = function(item){
 			$scope.selected = item;
@@ -28,13 +32,9 @@
   }])
   .controller('projectDescription', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
     $scope.projectElement = [];
-    $scope.projectCategory = [];
     $scope.id = parseInt($routeParams.id);
     baudeoService.getProjectById($scope.id).then(function(data){
       $scope.projectElement = data;
-    });
-    baudeoService.getCategory($scope.id).then(function(data){
-      $scope.projectCategory = data;
     });
   }])
   .controller('sliderHome', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
@@ -57,9 +57,33 @@
     });
   }])
   .controller('sliderPromotions', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
-    $scope.sliderElementsProm = [];
+    $scope.sliderElements = [];
     baudeoService.getSliderPromotions().then(function(data){
-      $scope.sliderElementsProm = data;
+      $scope.sliderElements = data;
+    });
+  }])
+  .controller('sliderEquipment', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
+    $scope.sliderElements = [];
+    baudeoService.sliderEquipment().then(function(data){
+      $scope.sliderElements = data;
+    });
+  }])
+  .controller('sliderInstalations', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
+    $scope.sliderElements = [];
+    baudeoService.sliderInstalations().then(function(data){
+      $scope.sliderElements = data;
+    });
+  }])
+  .controller('sliderMaterial', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
+    $scope.sliderElements = [];
+    baudeoService.sliderMaterial().then(function(data){
+      $scope.sliderElements = data;
+    });
+  }])
+  .controller('sliderPersonal', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
+    $scope.sliderElements = [];
+    baudeoService.sliderPersonal().then(function(data){
+      $scope.sliderElements = data;
     });
   }])
 })();

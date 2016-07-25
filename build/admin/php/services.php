@@ -16,6 +16,21 @@
 			case 'getSliderHome':
 				getSliderHome();
 				break;
+			case 'getSliderPromotions':
+				getSliderPromotions();
+				break;
+			case 'sliderEquipment':
+				sliderEquipment();
+				break;
+			case 'sliderInstalations':
+				sliderInstalations();
+				break;
+			case 'sliderMaterial':
+				sliderMaterial();
+				break;
+			case 'sliderPersonal':
+				sliderPersonal();
+				break;
 			case 'getServicesList':
 				getServicesList();
 				break;
@@ -26,85 +41,36 @@
 	}
 
 	function getProjectList(){
-		$query = "SELECT * FROM project ORDER BY idProject DESC";
+		$query = "SELECT * FROM notes n INNER JOIN states s ON s.idstates = n.states_idstates ORDER BY n.idnotes DESC";
 		$result = mysql_query($query) or die(mysql_error());
-		$arrayListProjects = array();
+		$arrayAux = array();
 		while($line = mysql_fetch_array($result)){
-			$idProject = $line['idProject'];
-			$query2 = "SELECT * FROM project_has_category
-								 INNER JOIN category ON project_has_category.idCategory = category.idCategory
-								 WHERE project_has_category.idProject = ".$idProject;
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$arrayAuxCategories = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$arrayAux = array(
-					'idCategory' => $line2['idCategory'],
-					'nameCategory' => $line2['nameCategory']
-				);
-				array_push($arrayAuxCategories, $arrayAux);
-			}
-			$idGalleryRelation = $line['idGalleryRelation'];
-			$query2 = "SELECT * FROM imagegalleryproject
-								 WHERE idGalleryRelation = ".$idGalleryRelation;
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$arrayAuxGallery = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$arrayAux = array(
-					'idImageGallery' => $line2['idImageGallery'],
-					'imageGallery' => $line2['imageGallery']
-				);
-				array_push($arrayAuxGallery, $arrayAux);
-			}
-			$arrayAux = array(
-					'idProject' => $line['idProject'],
-					'titleProject' => $line['titleProject'],
-					'descriptionProject' => $line['descriptionProject'],
-					'idGalleryRelation' => $line['idGalleryRelation'],
-					'elementsGallery' => $arrayAuxGallery,
-					'elementsCategory' => $arrayAuxCategories
-				);
-			array_push($arrayListProjects, $arrayAux);
+			$arrayAux[] = array(
+				'idnotes' => $line['idnotes'],
+				'notesName' => $line['notesName'],
+				'notesDescription' => $line['notesDescription'],
+				'notesDate' => $line['notesDate'],
+				'stateName' => $line['states_idstates'],
+				'citiesName' => $line['cities_idcities']
+			);
 		}
-		echo json_encode($arrayListProjects);
+		echo json_encode($arrayAux);
 	}
 
 	function getProjectById($id){
-		$query = "SELECT * FROM project WHERE idProject = $id ORDER BY idProject DESC";
+		$query = "SELECT * FROM imagesNotes im INNER JOIN notes n ON n.idnotes = im.notes_idnotes WHERE notes_idnotes = $id ORDER BY idimagesNotes DESC";
 		$result = mysql_query($query) or die(mysql_error());
 		$arrayListProjects = array();
 		while($line = mysql_fetch_array($result)){
-			$idProject = $line['idProject'];
-			$query2 = "SELECT * FROM project_has_category
-								 INNER JOIN category ON project_has_category.idCategory = category.idCategory
-								 WHERE project_has_category.idProject = ".$idProject;
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$arrayAuxCategories = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$arrayAux = array(
-					'idCategory' => $line2['idCategory'],
-					'nameCategory' => $line2['nameCategory']
-				);
-				array_push($arrayAuxCategories, $arrayAux);
-			}
-			$idGalleryRelation = $line['idGalleryRelation'];
-			$query2 = "SELECT * FROM imagegalleryproject
-								 WHERE idGalleryRelation = ".$idGalleryRelation;
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$arrayAuxGallery = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$arrayAux = array(
-					'idImageGallery' => $line2['idImageGallery'],
-					'imageGallery' => $line2['imageGallery']
-				);
-				array_push($arrayAuxGallery, $arrayAux);
-			}
 			$arrayAux = array(
-					'idProject' => $line['idProject'],
-					'titleProject' => $line['titleProject'],
-					'descriptionProject' => $line['descriptionProject'],
-					'idGalleryRelation' => $line['idGalleryRelation'],
-					'elementsGallery' => $arrayAuxGallery,
-					'elementsCategory' => $arrayAuxCategories
+				'idimagesNotes' => $line['idimagesNotes'],
+				'imagesNotesName' => $line['imagesNotesName'],
+				'idnotes' => $line['idnotes'],
+				'notesName' => $line['notesName'],
+				'notesDescription' => $line['notesDescription'],
+				'notesDate' => $line['notesDate'],
+				'stateName' => $line['states_idstates'],
+				'citiesName' => $line['cities_idcities']
 				);
 			array_push($arrayListProjects, $arrayAux);
 
@@ -132,67 +98,122 @@
 	}
 
 	function getSliderHome(){
-		$query = "SELECT * FROM sliderhome ORDER BY idSliderHome DESC";
+		$query = "SELECT * FROM bannersHome ORDER BY idbannersHome DESC";
 		$result = mysql_query($query) or die(mysql_error());
 		$dataBanners = array();
 		while($line = mysql_fetch_array($result)){
 			$dataBanners[] = array(
-				'idSliderHome' => $line['idSliderHome'],
-				'imageSliderHome' => $line['imageSliderHome']
+				'idbannersHome' => $line['idbannersHome'],
+				'bannersHomeImage' => $line['bannersHomeImage'],
+				'bannersHomeUrl' => $line['bannersHomeUrl'],
+				'bannersHomeName' => $line['bannersHomeName']
+			);
+		}
+		echo json_encode($dataBanners);
+	}
+
+	function getSliderPromotions(){
+		$query = "SELECT * FROM bannersPromotions ORDER BY idbannersPromotions DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$dataBanners = array();
+		while($line = mysql_fetch_array($result)){
+			$dataBanners[] = array(
+				'idbannersPromotions' => $line['idbannersPromotions'],
+				'bannersPromotionsImage' => $line['bannersPromotionsImage'],
+				'bannersPromotionsUrl' => $line['bannersPromotionsUrl'],
+				'bannersPromotionsName' => $line['bannersPromotionsName']
+			);
+		}
+		echo json_encode($dataBanners);
+	}
+
+	function sliderEquipment(){
+		$query = "SELECT * FROM bannersEquipment ORDER BY idbannersEquipment DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$dataBanners = array();
+		while($line = mysql_fetch_array($result)){
+			$dataBanners[] = array(
+				'idbannersEquipment' => $line['idbannersEquipment'],
+				'bannersEquipmentImage' => $line['bannersEquipmentImage'],
+				'bannersEquipmentUrl' => $line['bannersEquipmentUrl'],
+				'bannersEquipmentName' => $line['bannersEquipmentName'],
+				'bannersEquipmentDescription' => $line['bannersEquipmentDescription']
+			);
+		}
+		echo json_encode($dataBanners);
+	}
+
+	function sliderInstalations(){
+		$query = "SELECT * FROM bannersInstalations ORDER BY idbannersInstalations DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$dataBanners = array();
+		while($line = mysql_fetch_array($result)){
+			$dataBanners[] = array(
+				'idbannersInstalations' => $line['idbannersInstalations'],
+				'bannersInstalationsImage' => $line['bannersInstalationsImage'],
+				'bannersInstalationsUrl' => $line['bannersInstalationsUrl'],
+				'bannersInstalationsName' => $line['bannersInstalationsName'],
+				'bannersInstalationsDescription' => $line['bannersInstalationsDescription']
+			);
+		}
+		echo json_encode($dataBanners);
+	}
+
+	function sliderMaterial(){
+		$query = "SELECT * FROM bannersMaterial ORDER BY idbannersMaterial DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$dataBanners = array();
+		while($line = mysql_fetch_array($result)){
+			$dataBanners[] = array(
+				'idbannersMaterial' => $line['idbannersMaterial'],
+				'bannersMaterialImage' => $line['bannersMaterialImage'],
+				'bannersMaterialUrl' => $line['bannersMaterialUrl'],
+				'bannersMaterialName' => $line['bannersMaterialName'],
+				'bannersMaterialDescription' => $line['bannersMaterialDescription']
+			);
+		}
+		echo json_encode($dataBanners);
+	}
+
+	function sliderPersonal(){
+		$query = "SELECT * FROM bannersPersonal ORDER BY idbannersPersonal DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$dataBanners = array();
+		while($line = mysql_fetch_array($result)){
+			$dataBanners[] = array(
+				'idbannersPersonal' => $line['idbannersPersonal'],
+				'bannersPersonalImage' => $line['bannersPersonalImage'],
+				'bannersPersonalUrl' => $line['bannersPersonalUrl'],
+				'bannersPersonalName' => $line['bannersPersonalName'],
+				'bannersPersonalDescription' => $line['bannersPersonalDescription']
 			);
 		}
 		echo json_encode($dataBanners);
 	}
 
 	function getServicesList(){
-		$query = "SELECT * FROM services ORDER BY idService DESC";
+		$query = "SELECT * FROM services ORDER BY idservices DESC";
 		$result = mysql_query($query) or die(mysql_error());
 		$dataServices = array();
 		while($line = mysql_fetch_array($result)){
-			$query2 = "SELECT * FROM imagegalleryservices WHERE idGalleryRelation = ".$line['idGalleryRelation'];
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$auxService = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$auxService[] = array(
-					'idImageGallery' => $line2['idImageGallery'],
-					'imageGallery' => $line2['imageGallery']
-				);
-			}
 			$dataServices[] = array(
-				'idService' => $line['idService'],
-				'nameService' => $line['nameService'],
-				'titleService' => $line['titleService'],
-				'descriptionService' => $line['descriptionService'],
-				'salientService' => $line['salientService'],
-				'idGalleryRelation' => $line['idGalleryRelation'],
-				'galleryImages' => $auxService
+				'idservices' => $line['idservices'],
+				'servicesName' => $line['servicesName'],
+				'servicesDescription' => $line['servicesDescription']
 			);
 		}
 		echo json_encode($dataServices);
 	}
 
 	function getServiceById($id){
-		$query = "SELECT * FROM services WHERE idService = ".$id;
+		$query = "SELECT * FROM services WHERE idservices = ".$id;
 		$result = mysql_query($query) or die(mysql_error());
 		$dataServices = array();
 		while($line = mysql_fetch_array($result)){
-			$query2 = "SELECT * FROM imagegalleryservices WHERE idGalleryRelation = ".$line['idGalleryRelation'];
-			$result2 = mysql_query($query2) or die(mysql_error());
-			$auxService = array();
-			while($line2 = mysql_fetch_array($result2)){
-				$auxService[] = array(
-					'idImageGallery' => $line2['idImageGallery'],
-					'imageGallery' => $line2['imageGallery']
-				);
-			}
 			$dataServices[] = array(
-				'idService' => $line['idService'],
-				'nameService' => $line['nameService'],
-				'titleService' => $line['titleService'],
-				'descriptionService' => $line['descriptionService'],
-				'salientService' => $line['salientService'],
-				'idGalleryRelation' => $line['idGalleryRelation'],
-				'galleryImages' => $auxService
+				'idservices' => $line['idservices'],
+				'servicesName' => $line['servicesName'],
+				'servicesDescription' => $line['servicesDescription']
 			);
 		}
 		echo json_encode($dataServices);
