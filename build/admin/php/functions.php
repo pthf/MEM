@@ -26,11 +26,41 @@
 			case 'addImageGalleryProyect':
 				addImageGalleryProyect();
 				break;
-			case 'addImageSlider':
-				addImageSlider();
+			case 'addImageSliderHome':
+				addImageSliderHome();
+				break;
+			case 'addImageSliderPromotions':
+				addImageSliderPromotions();
+				break;
+			case 'addImageSliderEquipment':
+				addImageSliderEquipment();
+				break;
+			case 'addImageSliderInstalations':
+				addImageSliderInstalations();
+				break;
+			case 'addImageSliderMaterial':
+				addImageSliderMaterial();
+				break;
+			case 'addImageSliderPersonal':
+				addImageSliderPersonal();
 				break;
 			case 'deleteImageSlider':
 				deleteImageSlider($_POST['idImage']);
+				break;
+			case 'deleteImageSliderPromotions':
+				deleteImageSliderPromotions($_POST['idImage']);
+				break;
+			case 'deleteImageSliderEquipment':
+				deleteImageSliderEquipment($_POST['idImage']);
+				break;
+			case 'deleteImageSliderInstalations':
+				deleteImageSliderInstalations($_POST['idImage']);
+				break;
+			case 'deleteImageSliderMaterial':
+				deleteImageSliderMaterial($_POST['idImage']);
+				break;
+			case 'deleteImageSliderPersonal':
+				deleteImageSliderPersonal($_POST['idImage']);
 				break;
 			case 'addService':
 				addService();
@@ -49,6 +79,9 @@
 				break;
 			case 'deleteCategory':
 				deleteCategory($_POST['idCategory']);
+				break;
+			case 'addContact':
+				addContact();
 				break;
 		}
 	}
@@ -75,86 +108,213 @@
 	}
 
 	function addProject(){
-		parse_str($_POST['data'], $arrayData);
-		$query = "INSERT INTO galleryrelationproject (idGalleryRelation) VALUES (NULL)";
+
+		parse_str($_POST['action'],$formData);
+
+		date_default_timezone_set('UTC');
+	    date_default_timezone_set("America/Mexico_City");
+	    $datatime = date("Y-m-d H:i:s");
+		
+		$query = "INSERT INTO notes VALUES ('','".$formData['note-name']."','".$formData['note-description']."','".$datatime."','".$formData['note-state']."','".$formData['note-city']."')";
 		$result = mysql_query($query) or die(mysql_error());
-		$idGalleryRelation = mysql_insert_id();
-		$query = "INSERT INTO project (titleProject, descriptionProject, idGalleryRelation) VALUES('".$arrayData['project-name']."', '".$arrayData['project-description']."', $idGalleryRelation)";
-		$result = mysql_query($query) or die(mysql_error());
-		$idProject = mysql_insert_id();
-		foreach ($arrayData['categoryList'] as $key => $value) {
-			$query = "INSERT INTO project_has_category (idProject, idCategory) VALUES (".$idProject.", ".$value.")";
-			$result = mysql_query($query) or die(mysql_error());
+
+		$id_note = mysql_insert_id(); 
+
+		foreach ($_FILES['imageSlidersHome']["name"] as $key => $value) {
+			$fileName = $_FILES["imageSlidersHome"]["name"][$key];
+			$fileType = $_FILES["imageSlidersHome"]["type"][$key];
+			$fileTemp = $_FILES["imageSlidersHome"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/notes/".$fileName);
+			$query1 = "INSERT INTO imagesNotes VALUES ('','".$fileName."','".$id_note."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
 		}
+
 	}
 
 	function modifyProject(){
+
 		parse_str($_POST['data'], $arrayData);
-		$idProject = $arrayData['project-id'];
-		$query = "DELETE FROM project_has_category WHERE idProject = $idProject ";
+
+		date_default_timezone_set('UTC');
+	    date_default_timezone_set("America/Mexico_City");
+	    $datatime = date("Y-m-d H:i:s");
+
+		$idnote = $arrayData['note-id'];
+		$query = "UPDATE notes SET notesName = '".$arrayData['note-name']."', notesDescription = '".$arrayData['note-description']."', 
+								notesDate = '".$datatime."', states_idstates = '".$arrayData['note-state']."', cities_idcities = '".$arrayData['note-city']."' WHERE idnotes =  $idnote";
 		$result = mysql_query($query) or die(mysql_error());
-		$query = "UPDATE project SET titleProject = '".$arrayData['project-name']."', descriptionProject = '".$arrayData['project-description']."' WHERE idProject =  $idProject";
-		$result = mysql_query($query) or die(mysql_error());
-		foreach ($arrayData['categoryList'] as $key => $value) {
-			$query = "INSERT INTO project_has_category (idProject, idCategory) VALUES (".$idProject.", ".$value.")";
-			$result = mysql_query($query) or die(mysql_error());
-		}
+
 	}
 
 	function deleteProject($idProject, $idGallery){
-		$query = "DELETE FROM imagegalleryproject WHERE idGalleryRelation = $idGallery";
+		$query = "DELETE FROM imagesNotes WHERE notes_idnotes = $idGallery";
 		$result = mysql_query($query) or die(mysql_error());
-		$query = "DELETE FROM project_has_category WHERE idProject = $idProject ";
-		$result = mysql_query($query) or die(mysql_error());
-		$query = "DELETE FROM project WHERE idProject = $idProject ";
-		$result = mysql_query($query) or die(mysql_error());
-		$query = "DELETE FROM galleryrelationproject WHERE idGalleryRelation = $idGallery ";
+		$query = "DELETE FROM notes WHERE idnotes = $idProject";
 		$result = mysql_query($query) or die(mysql_error());
 	}
 
 	function deleteImage($idImage){
-		$query = "DELETE FROM imagegalleryproject WHERE idImageGallery = $idImage";
+		$query = "DELETE FROM imagesNotes WHERE idimagesNotes = $idImage";
 		$result = mysql_query($query) or die(mysql_error());
 	}
 
 	function addImageGalleryProyect(){
+
+		parse_str($_POST['action'],$formData);
 		foreach ($_FILES['imageGallery']["name"] as $key => $value) {
 			$fileName = $_FILES["imageGallery"]["name"][$key];
-			$fileName = date("YmdHis").pathinfo($_FILES["imageGallery"]["type"][$key], PATHINFO_EXTENSION);
 			$fileType = $_FILES["imageGallery"]["type"][$key];
 			$fileTemp = $_FILES["imageGallery"]["tmp_name"][$key];
-			move_uploaded_file($fileTemp, "../src/images/projects/".$fileName);
-			$query = "INSERT INTO  imagegalleryproject (imageGallery, idGalleryRelation) VALUES ('".$fileName."', ".$_POST["idGalleryRelation"].")";
+			move_uploaded_file($fileTemp, "../src/images/notes/".$fileName);
+			$query = "INSERT INTO imagesNotes (imagesNotesName, notes_idnotes) VALUES ('".$fileName."', ".$formData['idnotes'].")";
 			$result = mysql_query($query) or die(mysql_error());
+		}
+
+	}
+
+	function addImageSliderHome(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageBannerHome']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageBannerHome"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["imageGallery"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageBannerHome"]["type"][$key];
+			$fileTemp = $_FILES["insertImageBannerHome"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderHome/".$fileName);
+			$query1 = "INSERT INTO bannersHome VALUES ('','".$fileName."','".$formData['home-url']."','".$formData['home-name']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
 		}
 	}
 
-	function addImageSlider(){
-		foreach ($_FILES['imageSlider']["name"] as $key => $value) {
-			$fileName = $_FILES["imageSlider"]["name"][$key];
-			$fileName = date("YmdHis").pathinfo($_FILES["imageSlider"]["type"][$key], PATHINFO_EXTENSION);
-			$fileType = $_FILES["imageSlider"]["type"][$key];
-			$fileTemp = $_FILES["imageSlider"]["tmp_name"][$key];
-			move_uploaded_file($fileTemp, "../src/images/slider/".$fileName);
-			$query = "INSERT INTO  sliderhome (idSliderHome, imageSliderHome) VALUES (NULL, ".$fileName.")";
-			$result = mysql_query($query) or die(mysql_error());
+	function addImageSliderPromotions(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageBannerPromotions']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageBannerPromotions"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["insertImageBannerPromotions"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageBannerPromotions"]["type"][$key];
+			$fileTemp = $_FILES["insertImageBannerPromotions"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderPromotions/".$fileName);
+			$query1 = "INSERT INTO bannersPromotions VALUES ('','".$fileName."','".$formData['promotions-url']."','".$formData['promotions-name']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
+		}
+	}
+
+	function addImageSliderEquipment(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageSliderEquipment']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageSliderEquipment"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["insertImageSliderEquipment"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageSliderEquipment"]["type"][$key];
+			$fileTemp = $_FILES["insertImageSliderEquipment"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderEquipment/".$fileName);
+			$query1 = "INSERT INTO bannersEquipment VALUES ('','".$fileName."','".$formData['equipment-url']."','".$formData['equipment-name']."','".$formData['equipment-description']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
+		}
+	}
+
+	function addImageSliderInstalations(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageSliderInstalations']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageSliderInstalations"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["insertImageSliderInstalations"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageSliderInstalations"]["type"][$key];
+			$fileTemp = $_FILES["insertImageSliderInstalations"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderInstalations/".$fileName);
+			$query1 = "INSERT INTO bannersInstalations VALUES ('','".$fileName."','".$formData['instalations-url']."','".$formData['instalations-name']."','".$formData['instalations-description']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
+		}
+	}
+
+	function addImageSliderMaterial(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageSliderMaterial']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageSliderMaterial"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["insertImageSliderMaterial"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageSliderMaterial"]["type"][$key];
+			$fileTemp = $_FILES["insertImageSliderMaterial"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderMaterial/".$fileName);
+			$query1 = "INSERT INTO bannersMaterial VALUES ('','".$fileName."','".$formData['material-url']."','".$formData['material-name']."','".$formData['material-description']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
+		}
+	}
+
+	function addImageSliderPersonal(){
+
+		parse_str($_POST['action'],$formData);
+
+		foreach ($_FILES['insertImageSliderPersonal']["name"] as $key => $value) {
+			$fileName = $_FILES["insertImageSliderPersonal"]["name"][$key];
+			$fileName = date("YmdHis").pathinfo($_FILES["insertImageSliderPersonal"]["type"][$key], PATHINFO_EXTENSION);
+			$fileType = $_FILES["insertImageSliderPersonal"]["type"][$key];
+			$fileTemp = $_FILES["insertImageSliderPersonal"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/sliderPersonal/".$fileName);
+			$query1 = "INSERT INTO bannersPersonal VALUES ('','".$fileName."','".$formData['personal-url']."','".$formData['personal-name']."','".$formData['personal-description']."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
 		}
 	}
 
 	function deleteImageSlider($idImage){
-		$query = "DELETE FROM sliderhome WHERE idSliderHome = $idImage";
+		$query = "DELETE FROM bannersHome WHERE idbannersHome = $idImage";
+		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function deleteImageSliderPromotions($idImage){
+		$query = "DELETE FROM bannersPromotions WHERE idbannersPromotions = $idImage";
+		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function deleteImageSliderEquipment($idImage){
+		$query = "DELETE FROM bannersEquipment WHERE idbannersEquipment = $idImage";
+		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function deleteImageSliderInstalations($idImage){
+		$query = "DELETE FROM bannersInstalations WHERE idbannersInstalations = $idImage";
+		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function deleteImageSliderMaterial($idImage){
+		$query = "DELETE FROM bannersMaterial WHERE idbannersMaterial = $idImage";
+		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function deleteImageSliderPersonal($idImage){
+		$query = "DELETE FROM bannersPersonal WHERE idbannersPersonal = $idImage";
 		$result = mysql_query($query) or die(mysql_error());
 	}
 
 	function addService(){
-		parse_str($_POST['data'],$arrayData);
-		$query = "INSERT INTO galleryrelationservices (idGalleryRelation) VALUES(NULL)";
-		$result = mysql_query($query) or die(mysql_error());
-		$idGalleryRelation = mysql_insert_id();
-		$query = "INSERT INTO services (nameService, titleService, descriptionService, salientService, idGalleryRelation) VALUES ('".$arrayData['service-name']."', '".$arrayData['service-title']."', '".$arrayData['service-description']."', ".$arrayData['service-outstanding'].", ".$idGalleryRelation.")";
-		$result = mysql_query($query) or die(mysql_error());
-	}
 
+		parse_str($_POST['action'],$formData);
+
+		date_default_timezone_set('UTC');
+	    date_default_timezone_set("America/Mexico_City");
+	    $datatime = date("Y-m-d H:i:s");
+		
+		$query = "INSERT INTO services VALUES ('','".$formData['service-name']."','".$formData['service-description']."')";
+		$result = mysql_query($query) or die(mysql_error());
+
+		$id_service = mysql_insert_id(); 
+
+		foreach ($_FILES['imageSlidersServices']["name"] as $key => $value) {
+			$fileName = $_FILES["imageSlidersServices"]["name"][$key];
+			$fileType = $_FILES["imageSlidersServices"]["type"][$key];
+			$fileTemp = $_FILES["imageSlidersServices"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/images/services/".$fileName);
+			$query1 = "INSERT INTO imagesServices VALUES ('','".$fileName."','".$id_service."')";
+			$result1 = mysql_query($query1) or die(mysql_error());
+		}
+	}
+		
 	function addImageGalleryService(){
 		foreach ($_FILES['imageGallery']["name"] as $key => $value) {
 			$fileName = $_FILES["imageGallery"]["name"][$key];
@@ -173,10 +333,13 @@
 	}
 
 	function editService(){
+
 		parse_str($_POST['data'], $arrayData);
-		$idService = $arrayData['service-id'];
-		$query = "UPDATE services SET nameService = '".$arrayData['service-name']."', titleService = '".$arrayData['service-title']."', descriptionService = '".$arrayData['service-description']."', salientService = '".$arrayData['service-outstanding']."' WHERE idService =  $idService";
+
+		$idservice = $arrayData['service-id'];
+		$query = "UPDATE services SET servicesName = '".$arrayData['service-name']."', servicesDescription = '".$arrayData['service-description']."' WHERE idservices =  $idservice";
 		$result = mysql_query($query) or die(mysql_error());
+
 	}
 
 	function deleteService($idService, $idGalleryRelation){
@@ -193,4 +356,17 @@
 		$result = mysql_query($query) or die(mysql_error());
 		$query = "DELETE FROM category WHERE idCategory = $idCategory";
 		$result = mysql_query($query) or die(mysql_error());
+	}
+
+	function addContact () {
+
+		parse_str($_POST['action'], $formData);
+		
+		date_default_timezone_set('UTC');
+	    date_default_timezone_set("America/Mexico_City");
+	    $datatime = date("Y-m-d H:i:s");
+
+		$query = "INSERT INTO contact VALUES('','".$formData['name']."','".$formData['email']."','".$formData['message']."','".$datatime."')";
+		$result = mysql_query($query) or die(mysql_error());
+
 	}

@@ -27,6 +27,26 @@
         templateUrl: './../views/sliderHome.php',
         controller: 'menuNavController'
       })
+      .when('/slider-promotions', {
+        templateUrl: './../views/sliderPromotions.php',
+        controller: 'menuNavController'
+      })
+      .when('/slider-equipment', {
+        templateUrl: './../views/sliderEquipment.php',
+        controller: 'menuNavController'
+      })
+      .when('/slider-instalations', {
+        templateUrl: './../views/sliderInstalations.php',
+        controller: 'menuNavController'
+      })
+      .when('/slider-material', {
+        templateUrl: './../views/sliderMaterial.php',
+        controller: 'menuNavController'
+      })
+      .when('/slider-personal', {
+        templateUrl: './../views/sliderPersonal.php',
+        controller: 'menuNavController'
+      })
       .otherwise({
         redirectTo: '/projects'
       });

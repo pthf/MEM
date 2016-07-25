@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="(key, data) in serviceElement[0].galleryImages">
+      <tr ng-repeat="(key, data) in serviceElement">
         <th>{{data.idImageGallery}}</th>
         <th><img src="../src/images/services/{{data.imageGallery}}" width="30%;" height="auto;"></th>
         <th>
@@ -18,19 +18,4 @@
     </tbody>
   </table>
   <br>
-  <div class="col-md-12">
-    <button type="button" class="btn btn-default">Add a new image</button>
-  </div><br><br>
-  <div class="col-md-5">
-    <form class="form-horizontal" enctype="multipart/form-data" id="insertImageGallery">
-      <div class="form-group">
-        <label for="imageGallery" class="col-sm-12 control-label" style="text-align: left;">Image Gallery *</label>
-        <div class="col-sm-12">
-          <input required type="file" class="form-control" id="imageGallery" name="imageGallery[]"></input>
-          <input type="submit" class="btn btn-default" value="Add"  name="" style="margin-top: 10px;"></input>
-          <input type="text" value="{{serviceElement[0].idGalleryRelation}}" id="idGalleryRelation" style="display:none"></input>
-        </div>
-      </div>
-    </form>
-  </div>
 </div>

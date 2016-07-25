@@ -41,6 +41,38 @@
         });
         return deferred.promise;
     }
+    function sliderEquipment(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=sliderEquipment')
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+    function sliderInstalations(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=sliderInstalations')
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+    function sliderMaterial(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=sliderMaterial')
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+    function sliderPersonal(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=sliderPersonal')
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
     function getServicesList(){
       var deferred = $q.defer();
       $http.get('./../php/services.php?namefunction=getServicesList')
@@ -62,6 +94,11 @@
       getProjectById: getProjectById,
       getCategory: getCategory,
       getSliderHome: getSliderHome,
+      getSliderPromotions: getSliderPromotions,
+      sliderEquipment: sliderEquipment,
+      sliderInstalations: sliderInstalations,
+      sliderMaterial: sliderMaterial,
+      sliderPersonal: sliderPersonal,
       getServicesList: getServicesList,
       getServiceById: getServiceById
     }

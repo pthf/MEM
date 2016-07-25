@@ -6,14 +6,14 @@
 			</div>
 			<div class="panel panel-body" ng-controller="serviceDescription">
 				<ul class="nav nav-tabs">
-				  <li style="cursor: pointer;" role="presentation" ng-class="{ active:item === 1 }"><a ng-click="selectItem(1)">Gallery</a></li>
-				  <li style="cursor: pointer;" role="presentation" ng-class="{ active:item === 2 }"><a ng-click="selectItem(2)">Edit</a></li>
+				  <!-- <li style="cursor: pointer;" role="presentation" ng-class="{ active:item === 1 }"><a ng-click="selectItem(1)">Gallery</a></li> -->
+				  <li style="cursor: pointer;" role="presentation" ng-class="{ active:item === 1 }"><a ng-click="selectItem(1)">Edit</a></li>
 					<li style="cursor: pointer;" role="presentation" ><a href="#/services">Back</a></li>
 				</ul>
-				<div ng-show="item === 1" class="cont-nav">
+				<!-- <div ng-show="item === 1" class="cont-nav">
 					<list-service-gallery></list-service-gallery>
-				</div>
-				<div ng-show="item === 2" class="cont-nav">
+				</div> -->
+				<div ng-show="item === 1" class="cont-nav">
 					<form-service-edit></form-service-edit>
 				</div>
 			</div>
