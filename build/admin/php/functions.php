@@ -80,8 +80,20 @@
 			case 'deleteCategory':
 				deleteCategory($_POST['idCategory']);
 				break;
+			case 'addPatient':
+				addPatient();
+			break;
+			case 'modifyPatient':
+				modifyPatient();
+			break;
+			case 'deletePatient':
+				deletePatient($_POST['idPatient']);
+				break;
 			case 'addContact':
 				addContact();
+				break;
+			case 'resultsPDF':
+				resultsPDF();
 				break;
 		}
 	}
@@ -358,6 +370,74 @@
 		$result = mysql_query($query) or die(mysql_error());
 	}
 
+	function addPatient () {
+
+		parse_str($_POST['action'], $formData);
+
+		foreach ($_FILES['pdfResults']["name"] as $key => $value) {
+			$fileName = $_FILES["pdfResults"]["name"][$key];
+			$fileType = $_FILES["pdfResults"]["type"][$key];
+			$fileTemp = $_FILES["pdfResults"]["tmp_name"][$key];
+			move_uploaded_file($fileTemp, "../src/files/pdf/".$fileName);
+		}
+
+		date_default_timezone_set('UTC');
+	    date_default_timezone_set("America/Mexico_City");
+	    $datatime = date("Y-m-d H:i:s");
+
+		$query = "INSERT INTO resultsPatient VALUES('','".$formData['patient-name']."','".$formData['patient-last-name']."','".$formData['patient-company']."','".$formData['patient-type-result']."','".$datatime."','".$formData['patient-ticket']."','".$fileName."')";
+		$result = mysql_query($query) or die(mysql_error());
+
+	}
+
+	function modifyPatient () {
+
+		parse_str($_POST['action'], $formData);
+
+		$query = "SELECT * FROM resultsPatient WHERE idresultsPatient = '".$formData['patient-id']."' AND resultsPatientPDF = '".$_FILES["pdfResults"]["name"][0]."'";
+		$result = mysql_query($query) or die(mysql_error());
+		$num_row = mysql_num_rows($result);
+
+		if ($num_row == 0) {
+			
+			foreach ($_FILES['pdfResults']["name"] as $key => $value) {
+				$fileName = $_FILES["pdfResults"]["name"][$key];
+				$fileType = $_FILES["pdfResults"]["type"][$key];
+				$fileTemp = $_FILES["pdfResults"]["tmp_name"][$key];
+				move_uploaded_file($fileTemp, "../src/files/pdf/".$fileName);
+			}
+
+			date_default_timezone_set('UTC');
+		    date_default_timezone_set("America/Mexico_City");
+		    $datatime = date("Y-m-d H:i:s");
+
+			$query1 = "UPDATE resultsPatient SET resultsPatientName = '".$formData['patient-name']."', resultsPatientLastName = '".$formData['patient-last-name']."', resultsPatientCompany = '".$formData['patient-company']."', 
+												resultsPatientTypeResult = '".$formData['patient-type-result']."', resultsPatientDate = '".$datatime."', 
+												resultsPatientTicket = '".$formData['patient-ticket']."', resultsPatientPDF = '".$fileName."' WHERE idresultsPatient = '".$formData['patient-id']."'";
+			$result1 = mysql_query($query1) or die(mysql_error());
+
+		} else {
+
+			date_default_timezone_set('UTC');
+		    date_default_timezone_set("America/Mexico_City");
+		    $datatime = date("Y-m-d H:i:s");
+
+			$query1 = "UPDATE resultsPatient SET resultsPatientName = '".$formData['patient-name']."', resultsPatientLastName = '".$formData['patient-last-name']."', resultsPatientCompany = '".$formData['patient-company']."', 
+			 									resultsPatientTypeResult = '".$formData['patient-type-result']."', resultsPatientDate = '".$datatime."', 
+			 									resultsPatientTicket = '".$formData['patient-ticket']."' WHERE idresultsPatient = '".$formData['patient-id']."'";
+			$result1 = mysql_query($query1) or die(mysql_error());
+
+		}
+
+	}
+
+	function deletePatient ($id) {
+
+		$query = "DELETE FROM resultsPatient WHERE idresultsPatient = '".$id."'";
+		$result = mysql_query($query) or die(mysql_error());
+
+	}
+
 	function addContact () {
 
 		parse_str($_POST['action'], $formData);
@@ -369,4 +449,21 @@
 		$query = "INSERT INTO contact VALUES('','".$formData['name']."','".$formData['email']."','".$formData['message']."','".$datatime."')";
 		$result = mysql_query($query) or die(mysql_error());
 
+	}
+
+	function resultsPDF () {
+
+		$query = "SELECT * FROM resultsPatient WHERE resultsPatientTicket = '".$_POST['ticket']."'";
+		$result = mysql_query($query) or die(mysql_error());
+		$row_num = mysql_num_rows($result);
+
+		if ($row_num == 0) {
+			echo 0;
+		} else {
+			$row = mysql_fetch_array($result) or die(mysql_error());
+			// $idresultsPatient = $row['idresultsPatient'];
+			// echo $idresultsPatient;
+			$resultsPatientPDF = $row['resultsPatientPDF'];
+			echo $resultsPatientPDF;
+		}
 	}

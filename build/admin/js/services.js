@@ -89,6 +89,22 @@
 		    });
 		    return deferred.promise;
     }
+    function getPatientList(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=getPatientList')
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+    function getPatientById(id){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=getPatientById&id='+id)
+        .success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
     return {
       getProjectList : getProjectList,
       getProjectById: getProjectById,
@@ -100,7 +116,9 @@
       sliderMaterial: sliderMaterial,
       sliderPersonal: sliderPersonal,
       getServicesList: getServicesList,
-      getServiceById: getServiceById
+      getServiceById: getServiceById,
+      getPatientList : getPatientList,
+      getPatientById: getPatientById,
     }
   }]);
 })();

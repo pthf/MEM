@@ -26,12 +26,18 @@
 		</div>
 	</div>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="./../js/lib/angular.min.js"></script>
 	<script src="./../js/lib/angular-route.min.js"></script>
 	<script src="./../js/app.js"></script>
 	<script src="./../js/controllers.js"></script>
-  <script src="./../js/directives.js"></script>
+  	<script src="./../js/directives.js"></script>
 	<script src="./../js/services.js"></script>
+
+	<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+  	<script src="./../js/lib/ngclipboard/dist/ngclipboard.min.js"></script>
+	<script src="./../js/tinymce.js"></script>
+	
 </body>
 </html>

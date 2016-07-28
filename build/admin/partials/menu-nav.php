@@ -24,6 +24,7 @@
         <li style="background: #23275f; color: #FFF;" role="presentation" ng-class="{active:selected===6}" ng-click="changeNav(6)"><a href="#/slider-instalations" style="color: #FFF;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slider Instalations</a></li>
         <li style="background: #23275f; color: #FFF;" role="presentation" ng-class="{active:selected===7}" ng-click="changeNav(7)"><a href="#/slider-material" style="color: #FFF;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slider Material</a></li>
         <li style="background: #23275f; color: #FFF;" role="presentation" ng-class="{active:selected===8}" ng-click="changeNav(8)"><a href="#/slider-personal" style="color: #FFF;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slider Personal</a></li>
+        <li style="background: #23275f; color: #FFF;" role="presentation" ng-class="{active:selected===9}" ng-click="changeNav(9)"><a href="#/patients" style="color: #FFF;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Patients</a></li>
   		</ul>
 		</div>
 	</div>

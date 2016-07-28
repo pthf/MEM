@@ -10,6 +10,41 @@ connect_base_de_datos();
     <title>Medicina Empresarial en Movimiento</title>
     <link rel="stylesheet" href="css/main.css">
   </head>
+
+  <style type="text/css">
+  #modal{ 
+    position: fixed; 
+    width: 25%; 
+    height: 250px; 
+    top: 10%; left: 0%; 
+    font-family:Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 12px; 
+    font-weight: normal; 
+    background-color: #FAFAFA; 
+    color: #000000; display:none;
+  }
+
+  .head-modal{
+    padding: 13px; 
+    background-color: #F0F0F0; 
+    text-align: center; 
+    margin-top: 0px;
+  }
+
+  .content-modal{
+    padding: 5px; 
+    text-align: justify; 
+    line-height:normal;
+  }
+
+  .footer-modal{
+    padding: 10px; 
+    background-color: #F0F0F0; 
+    text-align: center; 
+    margin-top: 75px;
+  }
+  </style>
+  
   <body>
 
   <!-- Header  -->
@@ -356,19 +391,31 @@ connect_base_de_datos();
       <img src="img/banner-2-01.png">
     </div>
 
-    <div class="results-info">
+    <div class="results-info" onclick="location.href='javascript:openModal();';">
 
         <div class="results-info-box">
           <div class="results-icon">
             <img src="img/icon-5.svg">
           </div>
-
           <span class="results-info-text">
-            CONSULTA <br> TUS RESULTADOS
+            <a href="" style="color:white">CONSULTA <br> TUS RESULTADOS</a>
           </span>
         </div>
 
     </div>
+
+    <div id="modal" class="modal">
+      <div class="head-modal">Ticket Paciente</div>
+        <div class="content-modal">
+          <form id="formResults" style="padding-left: 32%;">
+            <label>Ingrese ticket del paciente</label>
+            <input required type="text" id="name-ticket" name"name-ticket">
+            <input type="submit" value="Consultar">
+          </form>
+        </div>
+      <div class="footer-modal"><input id="close" onclick="closeModal();" name="close" size="20" type="button" value="Cerrar" />
+      </div>
+    </div> 
 
   </div>
 
@@ -403,30 +450,6 @@ connect_base_de_datos();
                 <img src="admin/src/images/sliderPromotions/<?php echo $row1['bannersPromotionsImage'];?>">
               </div>
             <?php } ?>
-
-            <!-- <div class="swiper-slide">
-              <img src="img/banner-1-01.png">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="img/banner-2-01.png">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="img/banner-3-01.png">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="img/banner-4-01.png">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="img/banner-5-01.png">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="img/banner-6-01.png">
-            </div> -->
 
           </div>
         </div>
@@ -589,6 +612,55 @@ connect_base_de_datos();
     $('.arrow-bottom-right').on('click', function(e){
       mySwiper2.swipeNext()
     })
+  </script>
+
+  <script type="text/javascript">
+    function openModal()
+    {
+        var ventana = document.getElementById('modal'); 
+        ventana.style.marginTop = "100px"; 
+        ventana.style.marginLeft = ((document.body.clientWidth-350) / 2) +  "px"; 
+        ventana.style.display = 'block'; 
+    }
+
+    function closeModal()
+    {
+        var ventana = document.getElementById('modal'); 
+        ventana.style.display = 'none';
+    }
+  </script>
+
+  <script type="text/javascript">
+    $('#formResults').submit(function(e){
+      e.preventDefault();
+
+      var ticket = $('#name-ticket').val();
+      var ajaxData = new FormData();
+      ajaxData.append("ticket", ticket);
+      ajaxData.append("namefunction","resultsPDF");
+
+        $.ajax({
+          url: "./admin/php/functions.php",
+          type: "POST",
+          data: ajaxData,
+          processData: false,  // tell jQuery not to process the data
+          contentType: false,   // tell jQuery not to set contentType
+          success: function(result){
+            if (result == 0) {
+              alert('Lo sentimos, el ticket es invalido');
+            } else {
+              // alert(result);
+              // window.location.href = "html/resultados-pdf.php?idResultTicket="+result;
+              window.location.href = "admin/src/files/pdf/"+result;
+            };
+            // location.reload();
+          },
+          error: function(error){
+            alert(error);
+          }
+        });
+      });
+
   </script>
 
   </body>

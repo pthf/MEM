@@ -47,6 +47,14 @@
         templateUrl: './../views/sliderPersonal.php',
         controller: 'menuNavController'
       })
+      .when('/patients', {
+        templateUrl: './../views/patients.php',
+        controller: 'menuNavController'
+      })
+      .when('/patient/:id', {
+        templateUrl: './../views/patient.php',
+        controller: 'menuNavController'
+      })
       .otherwise({
         redirectTo: '/projects'
       });

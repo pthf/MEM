@@ -63,19 +63,19 @@ connect_base_de_datos();
         <form class="" id="formContact" method="post">
           <div class="input-section">
             <span class="input-text">NOMBRE</span>
-            <input requred type="text" class="form-input" name="name" id="name">
+            <input required type="text" class="form-input" name="name" id="name">
           </div>
           <div class="required_name"></div>
 
           <div class="input-section">
             <span class="input-text">CORREO</span>
-            <input type="text" class="form-input" name="email" id="email">
+            <input required type="text" class="form-input" name="email" id="email">
           </div>
           <div class="required_email"></div>
 
           <div class="input-section message-input">
             <span class="input-text">MENSAJE</span>
-            <textarea name="message" id="message" rows="8" cols="40" class="form-input message-input"></textarea>
+            <textarea required name="message" id="message" rows="8" cols="40" class="form-input message-input"></textarea>
           </div>
           <div class="required_message"></div>
             <input type="submit" value="Enviar" class="send-data">

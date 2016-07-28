@@ -3,8 +3,9 @@
 	connect_base_de_datos();
 ?>
 <div class="row" style="margin-top: 2vw">
+	<div class="glyphicon glyphicon-picture iconFloatClick" aria-hidden="true"></div>
 	<div class="col-md-10">
-		<form class="form-horizontal" id="formProjects" name="" enctype="multipart/form-data">
+		<form class="form-horizontal" id="formProjects" name="" enctype="multipart/form-data" ng-controller="tinyController">
 			<div class="col-md-5">
 				<div class="form-group">
 					<label for="note-name" class="col-sm-12 control-label">Note Name *</label>
@@ -56,11 +57,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-xs-12 col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		        <label for="text-area-edit">Post:</label>
+		        <textarea id="text-area-edit" name="post" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+		    </div>
 		</form>
 	</div>
 
 </div>
-
+<contend-load-images></contend-load-images>
 
 <?php
 	close_database();

@@ -1,0 +1,29 @@
+<div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name Patient</th>
+        <th>Last Name</th>
+        <th>Company</th>
+        <th>Type Result</th>
+        <th>Ticket</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(key, patientList) in patientList">
+        <th>{{patientList.idresultsPatient}}</th>
+        <th>{{patientList.resultsPatientName}}</th>
+        <th>{{patientList.resultsPatientLastName}}</th>
+        <th>{{patientList.resultsPatientCompany}}</th>
+        <th>{{patientList.resultsPatientTypeResult}}</th>
+        <th>{{patientList.resultsPatientTicket}}</th>
+        <th>
+          <a href="#/patient/{{patientList.idresultsPatient}}"><span class="label label-default" style="cursor:pointer">Details</span></a>
+          <span class="label label-danger deletePatient" data-id='{{patientList.idresultsPatient}}' style="cursor:pointer">Delete</span>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -13,11 +13,25 @@
       case '/slider-instalations': $scope.selected = 6;  break;
       case '/slider-material': $scope.selected = 7;  break;
       case '/slider-personal': $scope.selected = 8;  break;
+      case '/patients': $scope.selected = 9;  break;
+      case '/patient': $scope.selected = 9;  break;
 		}
 		$scope.changeNav = function(item){
 			$scope.selected = item;
 		};
 	}])
+  .controller('tinyController', ['$scope', function($scope){
+    $scope.tinymceOptions = {
+      onChange: function(e) {
+        // put logic here for keypress and cut/paste changes
+      },
+      inline: false,
+      plugins : 'advlist autolink link image lists charmap print preview table',
+      skin: 'lightgray',
+      theme : 'modern',
+      height : 600
+    };
+  }])
   .controller('projectNavController', ['$scope', function($scope){
 		$scope.item = 1;
 		$scope.selectItem = function(item){
@@ -84,6 +98,19 @@
     $scope.sliderElements = [];
     baudeoService.sliderPersonal().then(function(data){
       $scope.sliderElements = data;
+    });
+  }])
+  .controller('patientListController', ['$scope', 'baudeoService', function($scope, baudeoService){
+    $scope.patientList = [];
+    baudeoService.getPatientList().then(function(data){
+      $scope.patientList = data;
+    });
+  }])
+  .controller('patientDescription', ['$scope', '$routeParams', 'baudeoService', function($scope, $routeParams, baudeoService){
+    $scope.patientElement = [];
+    $scope.id = parseInt($routeParams.id);
+    baudeoService.getPatientById($scope.id).then(function(data){
+      $scope.patientElement = data;
     });
   }])
 })();

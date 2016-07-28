@@ -162,24 +162,6 @@
 		            }
 		          });
 		        });
-		        // $(".deleteCategory").click(function(){
-		        //   var idCategory = $(this).attr('data-id');
-		        //   var namefunction = 'deleteCategory';
-		        //   $.ajax({
-		        //     url: "../php/functions.php",
-		        //     type: "POST",
-		        //     data: {
-		        //       idCategory : idCategory,
-		        //       namefunction : namefunction
-		        //     },
-		        //     success : function(result){
-		        //       location.reload();
-		        //     },
-		        //     error: function(error){
-		        //       alert(error);
-		        //     }
-		        //   });
-		        // });
       		}
 		}
 	})
@@ -714,4 +696,99 @@
       }
     }
   })
+
+  .directive('listPatient', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './../partials/list-patient.html',
+      controller: function($document){
+        $(document).on('click', '.deletePatient', function(){
+          var idPatient = $(this).attr('data-id');
+          var namefunction = 'deletePatient';
+          $.ajax({
+				url: "../php/functions.php",
+			  	type: "POST",
+			  	data: {
+              	namefunction: namefunction,
+              	idPatient: idPatient
+            },
+				success: function(result){
+					location.reload();
+				},
+				error: function(error){
+					alert(error);
+				}
+			});
+        });
+      }
+    }
+  })
+  .directive('formPatient', function(){
+		return{
+			restrict: 'E',
+			templateUrl: './../partials/form-patient.php',
+			controller: function($document){
+				$('#formPatients').submit(function(){
+
+		          	var ajaxData = new FormData();
+		          	ajaxData.append("action", $(this).serialize());
+	    			ajaxData.append("namefunction","addPatient");
+
+	    			$.each($("#formPatients input[type=file]"), function(i,obj){
+	    				$.each(obj.files, function(j, file){
+	    					ajaxData.append('pdfResults['+j+']', file);
+	    				})
+	    			});
+		          $.ajax({
+		            url: "../php/functions.php",
+		            type: "POST",
+		            data: ajaxData,
+		            processData: false,  // tell jQuery not to process the data
+		            contentType: false,   // tell jQuery not to set contentType
+		            success: function(result){
+		            	// alert(result);
+		              location.reload();
+		            },
+		            error: function(error){
+		              alert(error);
+		            }
+		          });
+		        });
+      		}
+		}
+	})
+  .directive('formPatientEdit', function(){
+		return{
+			restrict: 'E',
+			templateUrl: './../partials/form-patient-edit.php',
+			controller: function($document){
+				$("#formEditPatients").submit(function(){
+
+					var ajaxData = new FormData();
+		          	ajaxData.append("action", $(this).serialize());
+	    			ajaxData.append("namefunction","modifyPatient");
+
+	    			$.each($("#formEditPatients input[type=file]"), function(i,obj){
+	    				$.each(obj.files, function(j, file){
+	    					ajaxData.append('pdfResults['+j+']', file);
+	    				})
+	    			});
+					$.ajax({
+						url: "../php/functions.php",
+					  	type: "POST",
+					  	data: ajaxData,
+			            processData: false,  // tell jQuery not to process the data
+			            contentType: false,   // tell jQuery not to set contentType
+						success: function(result){
+							location.reload();
+						},
+						error: function(error){
+							alert(error);
+						}
+					});
+
+				});
+			}
+		}
+	})
 })();

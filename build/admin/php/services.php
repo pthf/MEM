@@ -37,6 +37,12 @@
 			case 'getServiceById':
 				getServiceById($_GET['id']);
 				break;
+			case 'getPatientList':
+				getPatientList();
+				break;
+			case 'getPatientById':
+				getPatientById($_GET['id']);
+				break;
 		}
 	}
 
@@ -217,4 +223,38 @@
 			);
 		}
 		echo json_encode($dataServices);
+	}
+
+	function getPatientList(){
+		$query = "SELECT * FROM resultsPatient ORDER BY idresultsPatient DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$arrayAux = array();
+		while($line = mysql_fetch_array($result)){
+			$arrayAux[] = array(
+				'idresultsPatient' => $line['idresultsPatient'],
+				'resultsPatientName' => $line['resultsPatientName'],
+				'resultsPatientLastName' => $line['resultsPatientLastName'],
+				'resultsPatientCompany' => $line['resultsPatientCompany'],
+				'resultsPatientTypeResult' => $line['resultsPatientTypeResult'],
+				'resultsPatientTicket' => $line['resultsPatientTicket']
+			);
+		}
+		echo json_encode($arrayAux);
+	}
+
+	function getPatientById($id){
+		$query = "SELECT * FROM resultsPatient WHERE idresultsPatient = $id  ORDER BY idresultsPatient DESC";
+		$result = mysql_query($query) or die(mysql_error());
+		$arrayAux = array();
+		while($line = mysql_fetch_array($result)){
+			$arrayAux[] = array(
+				'idresultsPatient' => $line['idresultsPatient'],
+				'resultsPatientName' => $line['resultsPatientName'],
+				'resultsPatientLastName' => $line['resultsPatientLastName'],
+				'resultsPatientCompany' => $line['resultsPatientCompany'],
+				'resultsPatientTypeResult' => $line['resultsPatientTypeResult'],
+				'resultsPatientTicket' => $line['resultsPatientTicket']
+			);
+		}
+		echo json_encode($arrayAux);
 	}
