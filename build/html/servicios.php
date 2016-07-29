@@ -58,8 +58,8 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php">Audiometrias aérea <br> Audiometrias óseas</a></span>
+              <span class="title-info"><a href="service-data.php?idservices=16"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info">Audiometrias aérea <br> Audiometrias óseas</span>
                <a href="service-data.php?idservices=16" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -72,8 +72,8 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php"> </a></span>
+              <span class="title-info"><a href="service-data.php?idservices=17"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info"></span>
                <a href="service-data.php?idservices=17" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -87,8 +87,8 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php"> </a></span>
+              <span class="title-info"><a href="service-data.php?idservices=18"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info"></span>
                <a href="service-data.php?idservices=18" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -102,8 +102,8 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php">Rayos x, densitometrias, <br> resonancias magnéticas, tomógrafias, <br> ecosonogramas, etc.</a></span>
+              <span class="title-info"><a href="service-data.php?idservices=19"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info">Rayos x, densitometrias, <br> resonancias magnéticas, tomógrafias, <br> ecosonogramas, etc.</span>
                <a href="service-data.php?idservices=19" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -117,13 +117,13 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php">
+              <span class="title-info"><a href="service-data.php?idservices=20"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info">
                 Chequeos dirigidos <br>
                 Chequeos periódicos <br>
                 Chequeos ejecutivos <br>
                 Chequeos cardiovasculares <br>
-            </a></span>
+              </span>
                <a href="service-data.php?idservices=20" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -137,12 +137,12 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php">
+              <span class="title-info"><a href="service-data.php?idservices=21"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info">
                 Periódicos <br>
                 Admisión <br>
                 Cédula h
-              </a></span>
+              </span>
                <a href="service-data.php?idservices=21" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>
@@ -156,13 +156,13 @@ connect_base_de_datos();
               $result = mysql_query($query) or die(mysql_error());
               $row = mysql_fetch_array($result);
               ?>
-              <span class="title-info"><a href="service-data.php"><?php echo $row['servicesName'];?></a></span>
-              <span class="subtitle-info"><a href="service-data.php">
+              <span class="title-info"><a href="service-data.php?idservices=22"><?php echo $row['servicesName'];?></a></span>
+              <span class="subtitle-info">
                 Pláticas de prevención alimenticia <br>
                 Pláticas de salud visual <br>
                 Campañas de vacunación <br>
                 Pláticas de prevención de PH Cancer cervicouterino.
-              </a></span>
+              </span>
                <a href="service-data.php?idservices=22" class="ver-mas"><span>VER MÁS</span></a>
             </div>
           </div>

@@ -49,25 +49,7 @@
         <div class="mem-desc-text-wrapper">
           <span class="title-p"><b>MEM</b></span>
           <p class="mem-desc-info">
-          Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat
-          cupidatat non proident, sunt in culpa
-          qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure
+          Somos un grupo que surge de una alianza estratégica con el fin de satisfacer al sector empresarial y el publico en general para el cuidado de su salud, con   infraestructura  y tecnología de punta, otorgando una excelente calidad en el servicio y atención personalizada haciendo que nuestros clientes se sientan totalmente satisfechos. 
           </p>
         </div>
 
@@ -76,30 +58,7 @@
 
     <div class="mem-des2">
       <p class="mem-desc-info">
-      Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim
-      ad minim veniam, quis nostrud exercitation
-      ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa
-      qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim
-      ad minim veniam, quis nostrud exercitation
-      ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa
-      qui officia deserunt mollit anim id est laborum.
+      <!-- No hay información -->
       </p>
     </div>
 
@@ -112,28 +71,14 @@
         <div class="mem-vm-top">
           <span class="title-p"><b>MISIÓN</b></span>
           <p class="mem-desc-info">
-          Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure
+          Brindar servicios de salud ocupacional de calidad, con la más alta tecnología;  que cumplan con las especificaciones y necesidades de nuestros clientes. Teniendo como prioridad la salud del ser humano en su entorno laboral y la satisfacción de nuestros empleados, a través de un constante crecimiento y una mayor competitividad.
           </p>
         </div>
 
         <div class="mem-vm-bottom">
           <span class="title-p"><b>VISIÓN</b></span>
           <p class="mem-desc-info">
-          Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat
+          Ser reconocidos por la gama mas extensa de servicios de salud ocupacional, a bajos costos pero basados siempre en estándares de alta calidad y mejora continua, satisfaciendo día a  día  las necesidades y especificaciones de nuestros clientes con la mas alta calidez humana.
           </p>
         </div>
 
@@ -154,13 +99,14 @@
         <span class="title-p"><b>VALORES</b></span>
 
         <ul class="value-list">
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
-          <li class="value-list-item">-lorem ipsum.</li>
+          <li class="value-list-item">- TRABAJO EN EQUIPO.</li>
+          <li class="value-list-item">- INTEGRIDAD.</li>
+          <li class="value-list-item">- HONESTIDAD.</li>
+          <li class="value-list-item">- RESPONSABILIDAD.</li>
+          <li class="value-list-item">- RESPETO.</li>
+          <li class="value-list-item">- INTEGRIDAD  CALIDAD CALIDEZ.</li>
+          <li class="value-list-item">- SERVICIO.</li>
+          <li class="value-list-item">- CONFIDENCIALIDAD.</li>
         </ul>
       </div>
     </div>

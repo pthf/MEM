@@ -122,12 +122,11 @@
 	function addProject(){
 
 		parse_str($_POST['action'],$formData);
-
 		date_default_timezone_set('UTC');
 	    date_default_timezone_set("America/Mexico_City");
 	    $datatime = date("Y-m-d H:i:s");
 		
-		$query = "INSERT INTO notes VALUES ('','".$formData['note-name']."','".$formData['note-description']."','".$datatime."','".$formData['note-state']."','".$formData['note-city']."')";
+		$query = "INSERT INTO notes VALUES ('','".$formData['note-name']."','".$formData['note-description']."','".$datatime."',1,'1','".$formData['note-state']."','".$formData['note-city']."')";
 		$result = mysql_query($query) or die(mysql_error());
 
 		$id_note = mysql_insert_id(); 
@@ -153,7 +152,7 @@
 
 		$idnote = $arrayData['note-id'];
 		$query = "UPDATE notes SET notesName = '".$arrayData['note-name']."', notesDescription = '".$arrayData['note-description']."', 
-								notesDate = '".$datatime."', states_idstates = '".$arrayData['note-state']."', cities_idcities = '".$arrayData['note-city']."' WHERE idnotes =  $idnote";
+								notesDate = '".$datatime."', notesState = '".$arrayData['note-state']."', notesCity = '".$arrayData['note-city']."' WHERE idnotes =  $idnote";
 		$result = mysql_query($query) or die(mysql_error());
 
 	}
@@ -376,6 +375,7 @@
 
 		foreach ($_FILES['pdfResults']["name"] as $key => $value) {
 			$fileName = $_FILES["pdfResults"]["name"][$key];
+			$fileName = date("YmdHis").$fileName;
 			$fileType = $_FILES["pdfResults"]["type"][$key];
 			$fileTemp = $_FILES["pdfResults"]["tmp_name"][$key];
 			move_uploaded_file($fileTemp, "../src/files/pdf/".$fileName);
@@ -402,6 +402,7 @@
 			
 			foreach ($_FILES['pdfResults']["name"] as $key => $value) {
 				$fileName = $_FILES["pdfResults"]["name"][$key];
+				$fileName = date("YmdHis").$fileName;
 				$fileType = $_FILES["pdfResults"]["type"][$key];
 				$fileTemp = $_FILES["pdfResults"]["tmp_name"][$key];
 				move_uploaded_file($fileTemp, "../src/files/pdf/".$fileName);

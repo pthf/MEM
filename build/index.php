@@ -649,11 +649,8 @@ connect_base_de_datos();
             if (result == 0) {
               alert('Lo sentimos, el ticket es invalido');
             } else {
-              // alert(result);
-              // window.location.href = "html/resultados-pdf.php?idResultTicket="+result;
               window.location.href = "admin/src/files/pdf/"+result;
             };
-            // location.reload();
           },
           error: function(error){
             alert(error);

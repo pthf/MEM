@@ -48,7 +48,7 @@ connect_base_de_datos();
     <div class="notas-wrapper">
 
       <?php 
-      $query = "SELECT * FROM notes n INNER JOIN states s ON s.idstates = n.states_idstates INNER JOIN cities c On c.idcities = n.cities_idcities";
+      $query = "SELECT * FROM notes n ";
       $result = mysql_query($query) or die(mysql_error());
       while ($row = mysql_fetch_array($result)) { ?>
     
@@ -59,8 +59,59 @@ connect_base_de_datos();
             <div class="notas-item-title">
               <span class="notas-item-title-text"><?php echo $row['notesName']?></span> <br><br>
 
-              <span class="notas-item-data-location"><?php echo $row['citiesName'].','.$row['stateName'];?>.</span> <br>
-              <span class="notas-item-data-data">20 de Mayo de 2016</span>
+              <span class="notas-item-data-location"><?php echo $row['notesCity'].','.$row['notesState'];?>.</span> <br>
+              <?php 
+              $date = explode(' ', $row['notesDate']);
+              $fecha = $date[0];
+              $fechafinal = explode('-', $fecha);
+              $dia = explode(' ', $fechafinal[2]);
+              $fechats = strtotime($fecha);
+
+              switch (date('w', $fechats)){
+                case 0: $nameDia[] = "Domingo";
+                break;
+                case 1: $nameDia[] = "Lunes";
+                break;
+                case 2: $nameDia[] = "Martes";
+                break;
+                case 3: $nameDia[] = "Miércoles";
+                break;
+                case 4: $nameDia[] = "Jueves";
+                break;
+                case 5: $nameDia[] = 'Viernes';
+                break;
+                case 6: $nameDia[] = 'Sábado';
+                break;
+              }
+
+              switch (date('n', $fechats)){
+                case 1: $nameMes[] = "Enero";
+                break;
+                case 2: $nameMes[] = "Febrero";
+                break;
+                case 3: $nameMes[] = "Marzo";
+                break;
+                case 4: $nameMes[] = "Abril";
+                break;
+                case 5: $nameMes[] = 'Mayo';
+                break;
+                case 6: $nameMes[] = "Junio";
+                break;
+                case 7: $nameMes[] = "Julio";
+                break;
+                case 8: $nameMes[] = "Agosto";
+                break;
+                case 9: $nameMes[] = "Septiembre";
+                break;
+                case 10: $nameMes[] = "Octube";
+                break;
+                case 11: $nameMes[] = "Noviembre";
+                break;
+                case 12: $nameMes[] = "Diciembre";
+                break;
+              }
+              ?>
+              <span class="notas-item-data-data"><?php echo $nameDia[0].' '.$dia[0].' de '.$nameMes[0].' de '.$fechafinal[0];?></span>
             </div>
 
              <div class="notas-item-img">

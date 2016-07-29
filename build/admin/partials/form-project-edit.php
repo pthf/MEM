@@ -26,6 +26,18 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label for="note-state" class="col-sm-12 control-label">State *</label>
+					<div class="col-sm-12">
+						<input required type="text" class="form-control" id="note-state" placeholder="Insert a state" name="note-state" value="{{projectElement[0].notesState}}"></input>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="note-city" class="col-sm-12 control-label">City *</label>
+					<div class="col-sm-12">
+						<input required type="text" class="form-control" id="note-city" placeholder="Insert a city" name="note-city" value="{{projectElement[0].notesCity}}"></input>
+					</div>
+				</div>
+				<!-- <div class="form-group">
 					<label for="imageSlider" class="col-sm-12 control-label" style="text-align: left;">State</label>
 			        <div class="col-sm-12">
 				        <select required class="form-control" id="note-state" name="note-state">
@@ -46,7 +58,7 @@
 				        	<option value="844">TUXPAN</option>
 				        </select>
 			        </div>
-			    </div>
+			    </div> -->
 				<div class="col-md-12">
 					<button type="button" class="btn btn-danger" onclick="location.reload();">Cancel</button>
 					<button type="submit" class="btn btn-primary" id="buttonSave">Save</button>
@@ -54,6 +66,10 @@
 						<strong>Done!</strong> A new project was added, look at list tab.
 					</div>
 				</div>
+			      <!-- <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12 col-lg-12">
+			        <label for="text-area-edit">Post:</label>
+			        <textarea id="text-area-edit" name="post" ui-tinymce="tinymceOptions" ng-model="informationPost[0].blogDocument"></textarea>
+			      </div> -->
 			</div>
 			<input type="submit" style="display: none;" class="submit"></input>
 		</form>

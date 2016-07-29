@@ -155,7 +155,8 @@
 		            processData: false,  // tell jQuery not to process the data
 		            contentType: false,   // tell jQuery not to set contentType
 		            success: function(result){
-		              location.reload();
+		            	alert(result);
+		              // location.reload();
 		            },
 		            error: function(error){
 		              alert(error);

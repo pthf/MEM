@@ -75,8 +75,8 @@
 				'notesName' => $line['notesName'],
 				'notesDescription' => $line['notesDescription'],
 				'notesDate' => $line['notesDate'],
-				'stateName' => $line['states_idstates'],
-				'citiesName' => $line['cities_idcities']
+				'notesState' => $line['notesState'],
+				'notesCity' => $line['notesCity']
 				);
 			array_push($arrayListProjects, $arrayAux);
 
