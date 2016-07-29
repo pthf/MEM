@@ -1,5 +1,5 @@
-<?php 
-include("admin/php/connect_bd.php"); 
+<?php
+include("admin/php/connect_bd.php");
 connect_base_de_datos();
 ?>
 <!DOCTYPE html>
@@ -12,39 +12,141 @@ connect_base_de_datos();
   </head>
 
   <style type="text/css">
-  #modal{ 
-    position: fixed; 
-    width: 25%; 
-    height: 250px; 
-    top: 10%; left: 0%; 
-    font-family:Verdana, Arial, Helvetica, sans-serif; 
-    font-size: 12px; 
-    font-weight: normal; 
-    background-color: #FAFAFA; 
-    color: #000000; display:none;
+  #modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(48,44,44,.8);
+    display: block;
+    transition: .3s;
+    z-index: -9;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .head-modal{
-    padding: 13px; 
-    background-color: #F0F0F0; 
-    text-align: center; 
-    margin-top: 0px;
+  .modal-wrapper {
+      width: 30%;
+      height: auto;
+      padding: 3vw;
+      background: #fff;
+      position: relative;
+      padding: 8vw 3vw;
+      z-index: 9;
   }
 
-  .content-modal{
-    padding: 5px; 
-    text-align: justify; 
-    line-height:normal;
+  .head-modal {
+      text-align: center;
   }
 
-  .footer-modal{
-    padding: 10px; 
-    background-color: #F0F0F0; 
-    text-align: center; 
-    margin-top: 75px;
+  .content-modal {
+      text-align: left;
   }
+
+  .footer-modal {
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+
+  form {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: 3vw 0 0;
+    padding-left: 0 !important;
+  }
+
+  label,input#name-ticket{
+    margin: 2vw 0;
+  }
+
+  input[type="submit"] {
+    background: white;
+    border: 1px solid #00a6d5;
+    border-radius: 0;
+    color: purple;
+    width: 85px;
+    margin: 0 auto;
+    padding: 1vw 0;
+    cursor: pointer;
+  }
+
+  input#name-ticket{
+    border: 1px solid black;
+    padding: 1vw;
+  }
+
+  input#name-ticket:focus{
+    border: 1px solid black;
+  }
+
+  span.close-info svg {
+      width: 25px;
+      height: 25px;
+  }
+
+  .background-close {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span.error-msg {
+    color: red;
+    font-size: 18px;
+    margin-top: 36px;
+    display: none;
+    transition: .3s;
+  }
+
+  @media (max-width: 1024px){
+    .modal-wrapper {
+      width: 30%;
+      padding: 14vw 3vw;
+    }
+  }
+
+  @media (max-width: 768px){
+    .modal-wrapper {
+      width: 40%;
+      padding: 16vw 3vw;
+    }
+  }
+
+  @media (max-width: 640px){
+    .modal-wrapper {
+      width: 50%;
+      padding: 18vw 3vw;
+    }
+  }
+
+  @media (max-width: 480px){
+    .modal-wrapper {
+      width: 65%;
+      padding: 20vw 3vw;
+    }
+  }
+
+  @media (max-width: 320px){
+    .modal-wrapper {
+      width: 75%;
+      padding: 22vw 3vw;
+    }
+  }
+
   </style>
-  
+
   <body>
 
   <!-- Header  -->
@@ -84,7 +186,7 @@ connect_base_de_datos();
       <div class="swiper-container">
         <div class="swiper-wrapper">
 
-          <?php 
+          <?php
           $query = "SELECT * FROM bannersHome";
           $result = mysql_query($query) or die(mysql_error());
           while ($row = mysql_fetch_array($result)) { ?>
@@ -144,7 +246,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 16";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -170,7 +272,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 17";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -208,7 +310,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 18";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -243,7 +345,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 19";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -285,7 +387,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 20";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -328,7 +430,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 21";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -371,7 +473,7 @@ connect_base_de_datos();
         </div>
 
         <div class="service-title">
-          <?php 
+          <?php
           $query = "SELECT * FROM services WHERE idservices = 22";
           $result = mysql_query($query) or die(mysql_error());
           $row = mysql_fetch_array($result);
@@ -391,31 +493,50 @@ connect_base_de_datos();
       <img src="img/banner-2-01.png">
     </div>
 
-    <div class="results-info" onclick="location.href='javascript:openModal();';">
+    <div class="results-info" style="cursor:pointer">
 
         <div class="results-info-box">
           <div class="results-icon">
             <img src="img/icon-5.svg">
           </div>
           <span class="results-info-text">
-            <a href="" style="color:white">CONSULTA <br> TUS RESULTADOS</a>
+            CONSULTA <br> TUS RESULTADOS
           </span>
         </div>
 
     </div>
 
     <div id="modal" class="modal">
-      <div class="head-modal">Ticket Paciente</div>
+
+      <div class="background-close"></div>
+
+      <div class="modal-wrapper">
+        <div class="head-modal">Consulta de resultados</div>
         <div class="content-modal">
           <form id="formResults" style="padding-left: 32%;">
-            <label>Ingrese ticket del paciente</label>
-            <input required type="text" id="name-ticket" name"name-ticket">
+
+            <input required type="text" id="name-ticket" name"name-ticket" placeholder="Ingrese ticket del paciente">
             <input type="submit" value="Consultar">
+            <span class="error-msg">Lo sentimos, el ticket no existe.</span>
           </form>
         </div>
-      <div class="footer-modal"><input id="close" onclick="closeModal();" name="close" size="20" type="button" value="Cerrar" />
+        <div class="footer-modal">
+          <span class="close-info">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 50 48.7" style="enable-background:new 0 0 50 48.7;" xml:space="preserve">
+            <style type="text/css">
+            	.st99{fill:none;stroke:#000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+            </style>
+            <g>
+            	<line class="st99" x1="13.9" y1="13.3" x2="37.7" y2="37.1"/>
+            	<line class="st99" x1="37.7" y1="13.3" x2="13.9" y2="37.1"/>
+            </g>
+            </svg>
+          </span>
+        </div>
       </div>
-    </div> 
+
+    </div>
 
   </div>
 
@@ -442,7 +563,7 @@ connect_base_de_datos();
         <div class="swiper-container swiper-container2">
           <div class="swiper-wrapper">
 
-            <?php 
+            <?php
             $query1 = "SELECT * FROM bannersPromotions";
             $result1 = mysql_query($query1) or die(mysql_error());
             while ($row1 = mysql_fetch_array($result1)) { ?>
@@ -615,20 +736,31 @@ connect_base_de_datos();
   </script>
 
   <script type="text/javascript">
-    function openModal()
-    {
-        var ventana = document.getElementById('modal'); 
-        ventana.style.marginTop = "100px"; 
-        ventana.style.marginLeft = ((document.body.clientWidth-350) / 2) +  "px"; 
-        ventana.style.display = 'block'; 
-    }
+    $( '.results-info' ).click(function() {
+      $('#modal').css('z-index','9');
+      setTimeout(function(){
+        $('#modal').css('opacity','1');
+      }, 150);
+      $('html').css({"overflow-y" : "hidden"});
+      if ($(window).width() <= 768) {
+        $('html,body').css({
+          "overflow-y" : "hidden",
+          "position" : "fixed"
+        })
+      }
+    });
 
-    function closeModal()
-    {
-        var ventana = document.getElementById('modal'); 
-        ventana.style.display = 'none';
-    }
-  </script>
+    $( 'span.close-info,.background-close' ).click(function() {
+      $('#modal').css('opacity','0');
+      setTimeout(function(){
+        $('#modal').css('z-index','-9');
+      },235);
+      $('html,body').css({
+        "overflow-y" : "scroll",
+        "position" : "static"
+      })
+    });
+    </script>
 
   <script type="text/javascript">
     $('#formResults').submit(function(e){
@@ -647,10 +779,13 @@ connect_base_de_datos();
           contentType: false,   // tell jQuery not to set contentType
           success: function(result){
             if (result == 0) {
-              alert('Lo sentimos, el ticket es invalido');
+              $('.error-msg').css('display','block');
             } else {
+              // alert(result);
+              // window.location.href = "html/resultados-pdf.php?idResultTicket="+result;
               window.location.href = "admin/src/files/pdf/"+result;
             };
+            // location.reload();
           },
           error: function(error){
             alert(error);
