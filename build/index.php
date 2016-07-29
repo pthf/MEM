@@ -40,6 +40,7 @@ connect_base_de_datos();
 
   .head-modal {
       text-align: center;
+      font-size: 24px;
   }
 
   .content-modal {
@@ -70,11 +71,16 @@ connect_base_de_datos();
     background: white;
     border: 1px solid #00a6d5;
     border-radius: 0;
-    color: purple;
+    color: black;
     width: 85px;
     margin: 0 auto;
     padding: 1vw 0;
     cursor: pointer;
+    transition: .3s;
+  }
+
+  input[type="submit"]:hover{
+    background: #00a6d5;
   }
 
   input#name-ticket{
@@ -89,6 +95,7 @@ connect_base_de_datos();
   span.close-info svg {
       width: 25px;
       height: 25px;
+      cursor: pointer;
   }
 
   .background-close {
@@ -110,10 +117,22 @@ connect_base_de_datos();
     transition: .3s;
   }
 
+
+  @media (min-width: 1440px){
+    .head-modal {
+        font-size: 28px;
+    }
+  }
+
+
   @media (max-width: 1024px){
     .modal-wrapper {
       width: 30%;
       padding: 14vw 3vw;
+    }
+
+    .head-modal {
+        font-size: 22px;
     }
   }
 
@@ -122,6 +141,10 @@ connect_base_de_datos();
       width: 40%;
       padding: 16vw 3vw;
     }
+
+    .head-modal {
+        font-size: 20px;
+    }
   }
 
   @media (max-width: 640px){
@@ -129,12 +152,20 @@ connect_base_de_datos();
       width: 50%;
       padding: 18vw 3vw;
     }
+
+    .head-modal {
+        font-size: 18px;
+    }
   }
 
   @media (max-width: 480px){
     .modal-wrapper {
       width: 65%;
       padding: 20vw 3vw;
+    }
+
+    .head-modal {
+        font-size: 16px;
     }
   }
 
