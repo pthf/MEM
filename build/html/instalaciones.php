@@ -1,5 +1,5 @@
-<?php 
-include("../admin/php/connect_bd.php"); 
+<?php
+include("../admin/php/connect_bd.php");
 connect_base_de_datos();
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ connect_base_de_datos();
     <div class="gallery-wrapper">
 
       <div class="slider-img">
-        <div class="left-img"> < </div>
+        <div class="left-img modal-gallery"> < </div>
         <div class="img-wrapper">
           <div class="close-lightbox">
             <img src="../img/close-icon.svg" class="close-icon">
@@ -25,7 +25,7 @@ connect_base_de_datos();
           <div class="title-img"></div>
           <img src='' id="imgCurrent" alt="">
         </div>
-        <div class="right-img"> > </div>
+        <div class="right-img modal-gallery"> > </div>
         <div class="img-desc"></div>
       </div>
 
@@ -76,8 +76,8 @@ connect_base_de_datos();
        <div class="swiper-container swiper-container-small swiper-equipo">
         <span style="touch-action: manipulation" class="arrow-right arrow-right-equipo" href="#"> > </span>
            <div class="swiper-wrapper" id="swiper-equipo">
-            
-            <?php 
+
+            <?php
             $query = "SELECT * FROM bannersEquipment";
             $result = mysql_query($query) or die(mysql_error());
             while ($row = mysql_fetch_array($result)) { ?>
@@ -104,7 +104,7 @@ connect_base_de_datos();
         <span style="touch-action: manipulation" class="arrow-right arrow-right-install" href="#"> > </span>
            <div class="swiper-wrapper" id="swiper-install">
 
-            <?php 
+            <?php
             $query = "SELECT * FROM bannersInstalations";
             $result = mysql_query($query) or die(mysql_error());
             while ($row = mysql_fetch_array($result)) { ?>
@@ -131,7 +131,7 @@ connect_base_de_datos();
         <span style="touch-action: manipulation" class="arrow-right arrow-right-material" href="#"> > </span>
            <div class="swiper-wrapper" id="swiper-material">
 
-            <?php 
+            <?php
             $query = "SELECT * FROM bannersMaterial";
             $result = mysql_query($query) or die(mysql_error());
             while ($row = mysql_fetch_array($result)) { ?>
@@ -158,7 +158,7 @@ connect_base_de_datos();
         <span style="touch-action: manipulation" class="arrow-right arrow-right-personal" href="#"> > </span>
            <div class="swiper-wrapper" id="swiper-personal">
 
-            <?php 
+            <?php
             $query = "SELECT * FROM bannersPersonal";
             $result = mysql_query($query) or die(mysql_error());
             while ($row = mysql_fetch_array($result)) { ?>
@@ -390,7 +390,7 @@ connect_base_de_datos();
       descriptionImage = prevImg;
       description = descriptionImage.attr('data-description');
       $('.img-desc').html('<p>'+description+'</p>');
-      
+
       checkLastNPrev()
     }
 
