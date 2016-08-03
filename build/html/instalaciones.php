@@ -85,7 +85,6 @@ connect_base_de_datos();
                <img src="../admin/src/images/sliderEquipment/<?php echo $row['bannersEquipmentImage']?>">
               </div>
             <?php } ?>
-
            </div>
            <!-- Add Pagination -->
            <div class="swiper-pagination pagination-small"></div>

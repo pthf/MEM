@@ -34,10 +34,14 @@
   	<script src="./../js/directives.js"></script>
 	<script src="./../js/services.js"></script>
 
-	<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-	<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  	<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  	<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+  	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+  	<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
   	<script src="./../js/lib/ngclipboard/dist/ngclipboard.min.js"></script>
-	<script src="./../js/tinymce.js"></script>
+  	<script src="./../js/tinymce.js"></script>
 	
 </body>
 </html>

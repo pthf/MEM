@@ -3,8 +3,9 @@
   .controller('menuNavController', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location){
 		$scope.routeParams = $location.path();
 		switch ($scope.routeParams) {
-			case '/projects': $scope.selected = 1;  break;
-      case '/project': $scope.selected = 1;  break;
+			// case '/projects': $scope.selected = 1;  break;
+   //    case '/project': $scope.selected = 1;  break;
+      case '/interest-blog': $scope.selected = 1;  break;
       case '/services': $scope.selected = 2;  break;
       case '/service': $scope.selected = 2;  break;
       case '/slider-home': $scope.selected = 3;  break;
@@ -21,17 +22,76 @@
 		};
 	}])
   .controller('tinyController', ['$scope', function($scope){
+    $scope.tinymceModel = 'Initial content';
+    $scope.getContent = function() {
+      console.log('Editor content:', $scope.tinymceModel);
+    };
+    $scope.setContent = function() {
+      $scope.tinymceModel = 'Time: ' + (new Date());
+    };
     $scope.tinymceOptions = {
       onChange: function(e) {
-        // put logic here for keypress and cut/paste changes
       },
       inline: false,
       plugins : 'advlist autolink link image lists charmap print preview table',
       skin: 'lightgray',
       theme : 'modern',
-      height : 600
+      height : 600,
+      convert_urls:true,
+      relative_urls:false,
+      remove_script_host:false,
     };
   }])
+  .controller('viewNavController', ['$scope', function($scope){
+    $scope.item = 1;
+    $scope.selectItem = function(item){
+      $scope.item = item;
+    };
+  }])
+  .controller('getListInterestBlogController', ['$scope', 'baudeoService', function($scope, baudeoService){
+    $scope.listInterestBlog = [];
+    $scope.loadList = function(){
+      baudeoService.getListInterestBlog().then(function(data){
+        $scope.listInterestBlog = data;
+      });
+    }
+    $scope.loadList();
+  }])
+  .controller('getImagesLibraryController', ['$scope', 'baudeoService', function($scope, baudeoService){
+    $scope.listImages = [];
+    $scope.loadList = function(){
+      baudeoService.getImagesLibrary().then(function(data){
+        $scope.listImages = data;
+      });
+    }
+    $scope.loadList();
+  }])
+  .controller('getInterestPostByIdController', ['$scope', '$routeParams', 'baudeoService', '$sce', function($scope, $routeParams, baudeoService, $sce){
+    $scope.id = parseInt($routeParams.id);
+    $scope.informationPost = [];
+    $scope.loadInformation = function(){
+      baudeoService.getInformationPost($scope.id).then(function(data){
+        $scope.informationPost = data;
+      });
+    }
+    $scope.loadInformation();
+    $scope.trustAsHtml = function(html) {
+      return $sce.trustAsHtml(html);
+    };
+  }])
+  // .controller('getEventPostByIdController', ['$scope', '$routeParams', 'baudeoService', '$sce', function($scope, $routeParams, baudeoService, $sce){
+  //   $scope.id = parseInt($routeParams.id);
+  //   $scope.informationPost = [];
+  //   $scope.loadInformation = function(){
+  //     baudeoService.getInformationEventPost($scope.id).then(function(data){
+  //       $scope.informationPost = data;
+  //     });
+  //   }
+  //   $scope.loadInformation();
+  //   $scope.trustAsHtml = function(html) {
+  //     return $sce.trustAsHtml(html);
+  //   };
+  // }])
   .controller('projectNavController', ['$scope', function($scope){
 		$scope.item = 1;
 		$scope.selectItem = function(item){

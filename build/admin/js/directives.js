@@ -390,7 +390,6 @@
             processData: false,  // tell jQuery not to process the data
             contentType: false,   // tell jQuery not to set contentType
             success: function(result){
-            	// alert(result);
               location.reload();
             },
             error: function(error){
@@ -788,6 +787,156 @@
 						}
 					});
 
+				});
+			}
+		}
+	})
+  	.directive('contendLoadImages', function(){
+		return {
+			restrict: 'E',
+			templateUrl: './../partials/contend-load-images.html',
+			controller: function($document){
+				$('#libraryImages').submit(function(e){
+					e.preventDefault();
+					var ajaxData = new FormData();
+					ajaxData.append("namefunction","setImagesLibrary");
+
+					$.each($("#libraryImages input[type=file]"), function(i,obj){
+						$.each(obj.files, function(j, file){
+							ajaxData.append('setImage['+j+']', file);
+						})
+					});
+
+					$.ajax({
+						url: "../php/functions.php",
+						type: "POST",
+						data: ajaxData,
+						processData: false,  // tell jQuery not to process the data
+						contentType: false,   // tell jQuery not to set contentType
+						success: function(result){
+							// alert(result);
+							$('.ocultLoadInfoImages').trigger('click');
+						},
+						error: function(error){
+							alert('Error');
+						}
+					});
+				});
+				$('.closePanel').click(function(){
+					$('#blockPop').css({ 'opacity': '0', 'z-index': '-1' });
+					$('#contendLoadImages').css({ 'opacity': '0', 'z-index': '-1' });
+				});
+				$(document).on('click', '.deleteImageLibrary', function(){
+					var idImage = $(this).attr('data-id');
+					var namefunction = 'removeImageGallery';
+					$.ajax({
+						url: "../php/functions.php",
+						type: "POST",
+						data: {
+							namefunction: namefunction,
+							idImage: idImage
+						},
+						success: function(result){
+							$('.ocultLoadInfoImages').trigger('click');
+						},
+						error: function(error){
+							alert(error);
+						}
+					});
+				});
+			}
+		}
+	})
+	.directive('insertInterestNote', function(){
+		return {
+			restrict: 'E',
+			templateUrl: './../partials/insert-interest-note.html',
+			controller: function($document){
+				$('.iconFloatClick').click(function(){
+					$('#blockPop').css({ 'opacity': '1', 'z-index': '5' });
+					$('#contendLoadImages').css({ 'opacity': '1', 'z-index': '10' });
+				});
+				$('#buttonSave').click(function(){
+					$('#formAdd .formsubmit').trigger('click');
+				});
+				$('#formAdd').submit(function(e){
+					e.preventDefault();
+					var namefunction = "addNewInterestBlog";
+					var data = $(this).serialize();
+					$.ajax({
+						url: "../php/functions.php",
+						type: "POST",
+						data: {
+							namefunction: namefunction,
+							data: data
+						},
+						success: function(result){
+							location.reload();
+						},
+						error: function(error){
+							alert(error);
+						}
+					});
+				});
+			}
+		}
+	})
+	.directive('listInterestBlog', function(){
+		return {
+			restrict: 'E',
+			templateUrl: './../partials/list-interest-blog.html',
+			controller: function($document){
+				$(document).on('click', '.deleteElement', function(){
+					var idInterestBlog = $(this).attr('data-id');
+					var namefunction = 'removeInterestPost';
+					$.ajax({
+						url: "../php/functions.php",
+						type: "POST",
+						data: {
+							idInterestBlog: idInterestBlog,
+							namefunction: namefunction
+						},
+						success: function(result){
+							$('.clickoculted').trigger('click');
+						},
+						error: function(error){
+							alert(error);
+						}
+					});
+				});
+			}
+		}
+	})
+	.directive('editInterestNote', function(){
+		return {
+			restrict: 'E',
+			templateUrl: './../partials/edit-interest-note.html',
+			controller: function($document){
+				$('.iconFloatClick').click(function(){
+					$('#blockPop').css({ 'opacity': '1', 'z-index': '5' });
+					$('#contendLoadImages').css({ 'opacity': '1', 'z-index': '10' });
+				});
+				$('#buttonSave').click(function(){
+					$('#formAdd .formsubmit').trigger('click');
+				});
+				$('#formAdd').submit(function(e){
+					e.preventDefault();
+					var namefunction = "editNewInterestBlog";
+					var data = $(this).serialize();
+					$.ajax({
+						url: "../php/functions.php",
+						type: "POST",
+						data: {
+							namefunction: namefunction,
+							data: data
+						},
+						success: function(result){
+							location.reload();
+						},
+						error: function(error){
+							alert(error);
+						}
+					});
 				});
 			}
 		}

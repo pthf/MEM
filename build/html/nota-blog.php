@@ -2,8 +2,8 @@
 include("../admin/php/connect_bd.php"); 
 connect_base_de_datos();
 if (isset($_GET)) {
-  $idnote = $_GET['idnotes']; 
-  $query = "SELECT * FROM notes n INNER JOIN states s ON s.idstates = n.states_idstates INNER JOIN cities c On c.idcities = n.cities_idcities WHERE idnotes = '".$idnote."'";
+  $idInterestblog = $_GET['idInterestblog']; 
+  $query = "SELECT * FROM interestblog WHERE idInterestblog = '".$idInterestblog."'";
   $result = mysql_query($query) or die(mysql_error());
   $row = mysql_fetch_array($result);
 if(!mysql_num_rows($result)>0)
@@ -53,32 +53,14 @@ if(!mysql_num_rows($result)>0)
 
   <!-- Contenido -->
   <div class="sites-quien">
-    <h2 class="blue-bar">LOREM IPSUM DOLOR</h2>
+    <h2 class="blue-bar"><?php echo $row['blogName']?></h2>
     <div class="nota-blog">
 
-      <div class="banner-nota">
-        <img src="../img/banner-3-01.png">
-      </div>
-
       <div class="nota-content">
-        <div class="nota-content-wrapper">
 
-          <div class="nota-text">
             <p>
-              <?php echo $row['notesDescription']?>
+              <?php echo $row['blogDocument']?>
             </p>
-          </div>
-
-          <div class="nota-img-column">
-            <?php 
-            $query1 = "SELECT * FROM imagesNotes WHERE notes_idnotes = '".$idnote."'";
-            $result1 = mysql_query($query1) or die(mysql_error());
-            while ($row1 = mysql_fetch_array($result1)){ ?>
-              <div class="nota-img">
-                <img src="../admin/src/images/notes/<?php echo $row1['imagesNotesName']?>">
-              </div>
-            <?php } ?>
-          </div>
 
         </div>
       </div>

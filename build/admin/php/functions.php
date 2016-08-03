@@ -95,6 +95,21 @@
 			case 'resultsPDF':
 				resultsPDF();
 				break;
+			case 'addNewInterestBlog':
+				addNewInterestBlog();
+				break;
+			case 'removeImageGallery':
+				removeImageGallery($_POST['idImage']);
+				break;
+			case 'removeInterestPost':
+				removeInterestPost($_POST['idInterestBlog']);
+				break;
+			case 'setImagesLibrary':
+				setImagesLibrary();
+				break;
+			case 'editNewInterestBlog':
+				editNewInterestBlog();
+				break;
 		}
 	}
 
@@ -468,3 +483,59 @@
 			echo $resultsPatientPDF;
 		}
 	}
+
+	function addNewInterestBlog(){
+      parse_str($_POST['data'], $data);
+
+      $name = $data['name'];
+      $description = $data['description'];
+      $cover = $data['cover'];
+      $post = $data['post'];
+      date_default_timezone_set('UTC');
+      date_default_timezone_set("America/Mexico_City");
+      $datatime = date("Y-m-d H:i:s");
+      $query = "INSERT INTO interestblog (blogName, blogDate, blogCover, blogShortDescription, blogDocument) VALUES ('$name', '$datatime', '$cover', '$description', '$post')";
+      $result = mysql_query($query) or die(mysql_error());
+    }
+
+    function removeImageGallery($id){
+      // $idImage = $_POST['idImage'];
+      $query = "SELECT imageslibraryName FROM imageslibrary WHERE idimageslibrary =".$id;
+      $result = mysql_query($query) or die(mysql_error());
+      $line = mysql_fetch_array($result);
+      $nameImage = $line['imageslibraryName'];
+      unlink("../src/images/document/".$nameImage);
+      $query1 = "DELETE FROM imageslibrary WHERE idimageslibrary = ".$id;
+      $result1 = mysql_query($query1) or die(mysql_error());
+    }
+
+    function removeInterestPost($id){
+      // $idInterestBlog = $_POST['idInterestBlog'];
+      $query = "DELETE FROM interestblog WHERE idInterestBlog = $id";
+      $result = mysql_query($query) or die(mysql_error());
+    }
+
+    function setImagesLibrary(){
+
+      foreach ($_FILES['setImage']["name"] as $key => $value) {
+		$fileName = $_FILES["setImage"]["name"][$key];
+		// $fileName = date("YmdHis").pathinfo($_FILES["setImage"]["type"][$key], PATHINFO_EXTENSION);
+        $fileType = $_FILES["setImage"]["type"][$key];
+        $fileTemp = $_FILES["setImage"]["tmp_name"][$key];
+        move_uploaded_file($fileTemp, "../src/images/document/".$fileName);
+        $query = "INSERT INTO  imageslibrary (idimageslibrary, imageslibraryName) VALUES (NULL,'".$fileName."')";
+        $result = mysql_query($query) or die(mysql_error());
+      }
+
+    }
+
+    function editNewInterestBlog(){
+      parse_str($_POST['data'], $data);
+      $id = $data['id'];
+      $name = $data['name'];
+      $description = $data['description'];
+      $cover = $data['cover'];
+      $post = $data['post'];
+      $query = "UPDATE interestblog SET blogName = '$name', blogCover = '$cover', blogShortDescription = '$description', blogDocument = '$post' WHERE  idInterestBlog = $id";
+      $result = mysql_query($query);
+    }

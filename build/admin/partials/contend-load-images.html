@@ -4,11 +4,11 @@
   <ul>
     <li ng-repeat="(key, data) in listImages">
       <div>
-        <img src="./../src/images/document/{{data.nameImage}}">
+        <img src="./../src/images/document/{{data.imageslibraryName}}">
       </div>
       <span class="glyphicon glyphicon glyphicon-copy btn" aria-hidden="true" ngclipboard data-clipboard-target="#foo{{$index}}"></span>
-      <span class="glyphicon glyphicon glyphicon-trash deleteImageLibrary btn" aria-hidden="true" data-id="{{data.idImage}}"></span>
-      <input id="foo{{$index}}" value="http://localhost/www/therappy/build/admin/src/images/document/{{data.nameImage}}" style="display:block; opacity:0;">
+      <span class="glyphicon glyphicon glyphicon-trash deleteImageLibrary btn" aria-hidden="true" data-id="{{data.idimageslibrary}}"></span>
+      <input id="foo{{$index}}" value="http://localhost/www/MEM/build/admin/src/images/document/{{data.imageslibraryName}}" style="display:block; opacity:0;">
     </li>
   </ul>
   <form class="libraryImages" id="libraryImages" enctype="multipart/form-data">

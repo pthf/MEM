@@ -105,6 +105,31 @@
         });
         return deferred.promise;
     }
+    function getListInterestBlog(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=getListInterestBlog')
+        .success(function(data){
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+    function getImagesLibrary(){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=getImagesLibrary')
+        .success(function(data){
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
+
+    function getInformationPost(id){
+      var deferred = $q.defer();
+      $http.get('./../php/services.php?namefunction=getInformationPost&id='+id)
+        .success(function(data){
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    }
     return {
       getProjectList : getProjectList,
       getProjectById: getProjectById,
@@ -119,6 +144,9 @@
       getServiceById: getServiceById,
       getPatientList : getPatientList,
       getPatientById: getPatientById,
+      getListInterestBlog: getListInterestBlog,
+      getImagesLibrary: getImagesLibrary,
+      getInformationPost: getInformationPost
     }
   }]);
 })();

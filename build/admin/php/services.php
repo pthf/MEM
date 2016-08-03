@@ -43,6 +43,15 @@
 			case 'getPatientById':
 				getPatientById($_GET['id']);
 				break;
+			case 'getImagesLibrary':
+				getImagesLibrary();
+				break;
+			case 'getListInterestBlog':
+				getListInterestBlog();
+				break;
+			case 'getInformationPost':
+				getInformationPost($_GET['id']);
+				break;
 		}
 	}
 
@@ -258,3 +267,49 @@
 		}
 		echo json_encode($arrayAux);
 	}
+
+	function getImagesLibrary(){
+      $query = "SELECT * FROM imageslibrary ORDER BY idimageslibrary ASC";
+      $result = mysql_query($query) or die(mysql_error());
+      $listImages = array();
+      while($line = mysql_fetch_array($result)){
+        $listImages[] = array(
+          'idimageslibrary' => $line['idimageslibrary'],
+          'imageslibraryName' => $line['imageslibraryName'],
+        );
+      }
+      print_r(json_encode($listImages));
+    }
+
+    function getListInterestBlog(){
+      $query = "SELECT * FROM interestblog ORDER BY idInterestBlog DESC";
+      $result = mysql_query($query) or die(mysql_error());
+      $listInterestBlog = array();
+      while($line = mysql_fetch_array($result)){
+        $listInterestBlog[] = array(
+          'idInterestBlog' => $line['idInterestBlog'],
+          'blogName' => $line['blogName'],
+          'blogDate' => $line['blogDate'],
+          'blogCover' => $line['blogCover'],
+          'blogShortDescription' => $line['blogShortDescription'],
+          'blogDocument' => $line['blogDocument']
+        );
+      }
+      print_r(json_encode($listInterestBlog));
+    }
+
+    function getInformationPost($id){
+      $query = "SELECT * FROM interestblog WHERE idInterestBlog = ".$id;
+      $result = mysql_query($query) or die(mysql_error());
+      $line = mysql_fetch_array($result);
+      $informationPost = array();
+      $informationPost[] = array(
+        'idInterestBlog' => $line['idInterestBlog'],
+        'blogName' => $line['blogName'],
+        'blogDate' => $line['blogDate'],
+        'blogCover' => $line['blogCover'],
+        'blogShortDescription' => $line['blogShortDescription'],
+        'blogDocument' => $line['blogDocument']
+      );
+      print_r(json_encode($informationPost));
+    }

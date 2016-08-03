@@ -48,7 +48,7 @@ connect_base_de_datos();
     <div class="notas-wrapper">
 
       <?php 
-      $query = "SELECT * FROM notes n ";
+      $query = "SELECT * FROM interestblog";
       $result = mysql_query($query) or die(mysql_error());
       while ($row = mysql_fetch_array($result)) { ?>
     
@@ -57,11 +57,11 @@ connect_base_de_datos();
           <div class="notas-item-wrapper">
 
             <div class="notas-item-title">
-              <span class="notas-item-title-text"><?php echo $row['notesName']?></span> <br><br>
+              <span class="notas-item-title-text"><?php echo $row['blogName']?></span> <br><br>
 
-              <span class="notas-item-data-location"><?php echo $row['notesCity'].','.$row['notesState'];?>.</span> <br>
+              <!-- <span class="notas-item-data-location"><?php echo $row['notesCity'].', '.$row['notesState'];?>.</span> <br> -->
               <?php 
-              $date = explode(' ', $row['notesDate']);
+              $date = explode(' ', $row['blogDate']);
               $fecha = $date[0];
               $fechafinal = explode('-', $fecha);
               $dia = explode(' ', $fechafinal[2]);
@@ -116,28 +116,29 @@ connect_base_de_datos();
 
              <div class="notas-item-img">
               <?php 
-              $query1 = "SELECT * FROM imagesNotes WHERE notes_idnotes = '".$row['idnotes']."'";
-              $result1 = mysql_query($query1) or die(mysql_error());
-              $row1 = mysql_fetch_array($result1);
+              // $query1 = "SELECT * FROM imagesNotes WHERE notes_idnotes = '".$row['idnotes']."'";
+              // $result1 = mysql_query($query1) or die(mysql_error());
+              // $row1 = mysql_fetch_array($result1);
               ?>
-               <img src="../admin/src/images/notes/<?php echo $row1['imagesNotesName']?>">
+               <img src="<?php echo $row['blogCover']?>">
              </div>
 
             <div class="notas-item-preview">
               <p>
                 <?php 
-                  $length = 250;
-                  $descriptionText = substr($row['notesDescription'], 0, $length);
-                  if(strlen($row['notesDescription'])>$length){
-                    $descriptionText .= "...";
-                  }
-                  echo $descriptionText;
+                  // $length = 250;
+                  // $descriptionText = substr($row['notesDescription'], 0, $length);
+                  // if(strlen($row['notesDescription'])>$length){
+                  //   $descriptionText .= "...";
+                  // }
+                  // echo $descriptionText;
+                echo $row['blogShortDescription'];
                 ?>
               </p>
             </div>
 
              <div class="learn-more">
-               <span class="learn-more-button"> <a href="nota-blog.php?idnotes=<?php echo $row['idnotes'];?>">VER MÁS</a> </span>
+               <span class="learn-more-button"> <a href="nota-blog.php?idInterestblog=<?php echo $row['idInterestBlog'];?>">VER MÁS</a> </span>
              </div>
 
           </div>
