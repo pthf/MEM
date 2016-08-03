@@ -1,6 +1,6 @@
 <?php
 	include("../php/connect_bd.php");
-	connect_base_de_datos();
+	// connect_base_de_datos();
 ?>
 <div class="row" style="margin-top: 2vw">
 	<div class="col-md-10">
@@ -63,5 +63,5 @@
 
 
 <?php
-	close_database();
+	// close_database();
 ?>

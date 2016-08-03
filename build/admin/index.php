@@ -43,7 +43,7 @@
 					  	</div>
 					 </div>
 				</div>
-				<p class="text-center">©2016 BAUDEO - Website by PTHF</p>
+				<p class="text-center">©2016 MEM - Website by PTHF</p>
 			</div>
 		</div>
 	</div>

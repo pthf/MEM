@@ -1,6 +1,6 @@
 <?php
 include("../admin/php/connect_bd.php");
-connect_base_de_datos();
+// connect_base_de_datos();
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,8 +79,8 @@ connect_base_de_datos();
 
             <?php
             $query = "SELECT * FROM bannersEquipment";
-            $result = mysql_query($query) or die(mysql_error());
-            while ($row = mysql_fetch_array($result)) { ?>
+            $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+            while ($row = mysqli_fetch_array($result)) { ?>
               <div class="swiper-slide slider-small" id="<?php echo $row['idbannersEquipment']?>" data-name="<?php echo $row['bannersEquipmentName']?>" data-description="<?php echo $row['bannersEquipmentDescription']?>">
                <img src="../admin/src/images/sliderEquipment/<?php echo $row['bannersEquipmentImage']?>">
               </div>
@@ -105,8 +105,8 @@ connect_base_de_datos();
 
             <?php
             $query = "SELECT * FROM bannersInstalations";
-            $result = mysql_query($query) or die(mysql_error());
-            while ($row = mysql_fetch_array($result)) { ?>
+            $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+            while ($row = mysqli_fetch_array($result)) { ?>
               <div class="swiper-slide slider-small" id="<?php echo $row['idbannersInstalations']?>" data-name="<?php echo $row['bannersInstalationsName']?>" data-description="<?php echo $row['bannersInstalationsDescription']?>">
                <img src="../admin/src/images/sliderInstalations/<?php echo $row['bannersInstalationsImage']?>">
               </div>
@@ -132,8 +132,8 @@ connect_base_de_datos();
 
             <?php
             $query = "SELECT * FROM bannersMaterial";
-            $result = mysql_query($query) or die(mysql_error());
-            while ($row = mysql_fetch_array($result)) { ?>
+            $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+            while ($row = mysqli_fetch_array($result)) { ?>
               <div class="swiper-slide slider-small" id="<?php echo $row['idbannersMaterial']?>" data-name="<?php echo $row['bannersMaterialName']?>" data-description="<?php echo $row['bannersMaterialDescription']?>">
                <img src="../admin/src/images/sliderMaterial/<?php echo $row['bannersMaterialImage']?>">
               </div>
@@ -159,8 +159,8 @@ connect_base_de_datos();
 
             <?php
             $query = "SELECT * FROM bannersPersonal";
-            $result = mysql_query($query) or die(mysql_error());
-            while ($row = mysql_fetch_array($result)) { ?>
+            $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+            while ($row = mysqli_fetch_array($result)) { ?>
               <div class="swiper-slide slider-small" id="<?php echo $row['idbannersPersonal']?>" data-name="<?php echo $row['bannersPersonalName']?>" data-description="<?php echo $row['bannersPersonalDescription']?>">
                <img src="../admin/src/images/sliderPersonal/<?php echo $row['bannersPersonalImage']?>">
               </div>
@@ -180,7 +180,7 @@ connect_base_de_datos();
   </div>
 
   <!-- Footer -->
-  <footer style="background-color:rgb(0,166,213);">
+  <footer>
     <div class="footer-wrapper">
       <div class="footer-top-right">
         <ul class="nav-footer">
@@ -195,7 +195,7 @@ connect_base_de_datos();
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>

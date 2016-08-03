@@ -1,10 +1,10 @@
 <?php
   session_start();
   include('../php/connect_bd.php');
-  connect_base_de_datos();
+  // connect_base_de_datos();
   $query = "SELECT * FROM adminuser WHERE idAdminUser = ".$_SESSION['idAdmin'];
-  $result = mysql_query($query) or die(mysql_error());
-  $line = mysql_fetch_array($result);
+  $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error());
+  $line = mysqli_fetch_array($result);
 ?>
 <div class="barTop" style="background: #D8D8D8; border-bottom: 1px solid #848484;">
 	<button id="menuha" type="button" class="btn btn-default" aria-label="Left Align" style="margin: 20px; margin-left:10px;">

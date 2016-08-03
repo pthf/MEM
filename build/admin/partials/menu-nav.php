@@ -1,10 +1,10 @@
 <?php
   session_start();
   include('../php/connect_bd.php');
-  connect_base_de_datos();
+  // connect_base_de_datos();
   $query = "SELECT * FROM adminuser WHERE idAdminUser = ".$_SESSION['idAdmin'];
-  $result = mysql_query($query) or die(mysql_error());
-  $line = mysql_fetch_array($result);
+  $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+  $line = mysqli_fetch_array($result);
 ?>
 <div class="logoNav">
 	<a href="#/projects"><img src="../../img/logo-mem.svg"></a>

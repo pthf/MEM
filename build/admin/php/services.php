@@ -1,7 +1,7 @@
 <?php
 	if(isset($_GET['namefunction'])){
 		include("connect_bd.php");
-		connect_base_de_datos();
+		// connect_base_de_datos();
 		$namefunction = $_GET['namefunction'];
 		switch ($namefunction) {
 			case 'getProjectList':
@@ -57,9 +57,9 @@
 
 	function getProjectList(){
 		$query = "SELECT * FROM notes n INNER JOIN states s ON s.idstates = n.states_idstates ORDER BY n.idnotes DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$arrayAux = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$arrayAux[] = array(
 				'idnotes' => $line['idnotes'],
 				'notesName' => $line['notesName'],
@@ -74,9 +74,9 @@
 
 	function getProjectById($id){
 		$query = "SELECT * FROM imagesNotes im INNER JOIN notes n ON n.idnotes = im.notes_idnotes WHERE notes_idnotes = $id ORDER BY idimagesNotes DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$arrayListProjects = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$arrayAux = array(
 				'idimagesNotes' => $line['idimagesNotes'],
 				'imagesNotesName' => $line['imagesNotesName'],
@@ -95,13 +95,13 @@
 
 	function getCategory($id){
 		$query = "SELECT * FROM category";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataCategory = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$verify = false;
 			$query2 = "SELECT * FROM project_has_category WHERE idProject = ".$id." AND idCategory = ".$line['idCategory'];
-			$result2 = mysql_query($query2) or die(mysql_error());
-			if(mysql_num_rows($result2)>0)
+			$result2 = mysqli_query(Conectar::con(),$query2) or die(mysqli_error(Conectar::con()));
+			if(mysqli_num_rows($result2)>0)
 				$verify = true;
 			$dataCategory[] = array(
 				'idCategory' => $line['idCategory'],
@@ -114,9 +114,9 @@
 
 	function getSliderHome(){
 		$query = "SELECT * FROM bannersHome ORDER BY idbannersHome DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersHome' => $line['idbannersHome'],
 				'bannersHomeImage' => $line['bannersHomeImage'],
@@ -129,9 +129,9 @@
 
 	function getSliderPromotions(){
 		$query = "SELECT * FROM bannersPromotions ORDER BY idbannersPromotions DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersPromotions' => $line['idbannersPromotions'],
 				'bannersPromotionsImage' => $line['bannersPromotionsImage'],
@@ -144,9 +144,9 @@
 
 	function sliderEquipment(){
 		$query = "SELECT * FROM bannersEquipment ORDER BY idbannersEquipment DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersEquipment' => $line['idbannersEquipment'],
 				'bannersEquipmentImage' => $line['bannersEquipmentImage'],
@@ -160,9 +160,9 @@
 
 	function sliderInstalations(){
 		$query = "SELECT * FROM bannersInstalations ORDER BY idbannersInstalations DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersInstalations' => $line['idbannersInstalations'],
 				'bannersInstalationsImage' => $line['bannersInstalationsImage'],
@@ -176,9 +176,9 @@
 
 	function sliderMaterial(){
 		$query = "SELECT * FROM bannersMaterial ORDER BY idbannersMaterial DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersMaterial' => $line['idbannersMaterial'],
 				'bannersMaterialImage' => $line['bannersMaterialImage'],
@@ -192,9 +192,9 @@
 
 	function sliderPersonal(){
 		$query = "SELECT * FROM bannersPersonal ORDER BY idbannersPersonal DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataBanners = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataBanners[] = array(
 				'idbannersPersonal' => $line['idbannersPersonal'],
 				'bannersPersonalImage' => $line['bannersPersonalImage'],
@@ -208,9 +208,9 @@
 
 	function getServicesList(){
 		$query = "SELECT * FROM services ORDER BY idservices DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataServices = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataServices[] = array(
 				'idservices' => $line['idservices'],
 				'servicesName' => $line['servicesName'],
@@ -222,9 +222,9 @@
 
 	function getServiceById($id){
 		$query = "SELECT * FROM services WHERE idservices = ".$id;
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$dataServices = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$dataServices[] = array(
 				'idservices' => $line['idservices'],
 				'servicesName' => $line['servicesName'],
@@ -236,9 +236,9 @@
 
 	function getPatientList(){
 		$query = "SELECT * FROM resultsPatient ORDER BY idresultsPatient DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$arrayAux = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$arrayAux[] = array(
 				'idresultsPatient' => $line['idresultsPatient'],
 				'resultsPatientName' => $line['resultsPatientName'],
@@ -253,9 +253,9 @@
 
 	function getPatientById($id){
 		$query = "SELECT * FROM resultsPatient WHERE idresultsPatient = $id  ORDER BY idresultsPatient DESC";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
 		$arrayAux = array();
-		while($line = mysql_fetch_array($result)){
+		while($line = mysqli_fetch_array($result)){
 			$arrayAux[] = array(
 				'idresultsPatient' => $line['idresultsPatient'],
 				'resultsPatientName' => $line['resultsPatientName'],
@@ -270,9 +270,9 @@
 
 	function getImagesLibrary(){
       $query = "SELECT * FROM imageslibrary ORDER BY idimageslibrary ASC";
-      $result = mysql_query($query) or die(mysql_error());
+      $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
       $listImages = array();
-      while($line = mysql_fetch_array($result)){
+      while($line = mysqli_fetch_array($result)){
         $listImages[] = array(
           'idimageslibrary' => $line['idimageslibrary'],
           'imageslibraryName' => $line['imageslibraryName'],
@@ -283,9 +283,9 @@
 
     function getListInterestBlog(){
       $query = "SELECT * FROM interestblog ORDER BY idInterestBlog DESC";
-      $result = mysql_query($query) or die(mysql_error());
+      $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
       $listInterestBlog = array();
-      while($line = mysql_fetch_array($result)){
+      while($line = mysqli_fetch_array($result)){
         $listInterestBlog[] = array(
           'idInterestBlog' => $line['idInterestBlog'],
           'blogName' => $line['blogName'],
@@ -300,8 +300,8 @@
 
     function getInformationPost($id){
       $query = "SELECT * FROM interestblog WHERE idInterestBlog = ".$id;
-      $result = mysql_query($query) or die(mysql_error());
-      $line = mysql_fetch_array($result);
+      $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+      $line = mysqli_fetch_array($result);
       $informationPost = array();
       $informationPost[] = array(
         'idInterestBlog' => $line['idInterestBlog'],

@@ -1,6 +1,6 @@
 <?php
 include("admin/php/connect_bd.php");
-connect_base_de_datos();
+// connect_base_de_datos();
 ?>
 <!DOCTYPE html>
 <html>
@@ -219,8 +219,8 @@ connect_base_de_datos();
 
           <?php
           $query = "SELECT * FROM bannersHome";
-          $result = mysql_query($query) or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) { ?>
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          while ($row = mysqli_fetch_array($result)) { ?>
             <div class="swiper-slide">
               <img src="admin/src/images/sliderHome/<?php echo $row['bannersHomeImage'];?>">
             </div>
@@ -279,8 +279,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 16";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -305,8 +305,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 17";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -343,8 +343,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 18";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -378,8 +378,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 19";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -420,8 +420,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 20";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -463,8 +463,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 21";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -506,8 +506,8 @@ connect_base_de_datos();
         <div class="service-title">
           <?php
           $query = "SELECT * FROM services WHERE idservices = 22";
-          $result = mysql_query($query) or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+          $row = mysqli_fetch_array($result);
           ?>
           <span class="service-title-text"><?php echo $row['servicesName']?></span>
         </div>
@@ -596,8 +596,8 @@ connect_base_de_datos();
 
             <?php
             $query1 = "SELECT * FROM bannersPromotions";
-            $result1 = mysql_query($query1) or die(mysql_error());
-            while ($row1 = mysql_fetch_array($result1)) { ?>
+            $result1 = mysqli_query(Conectar::con(),$query1) or die(mysqli_error(Conectar::con()));
+            while ($row1 = mysqli_fetch_array($result1)) { ?>
               <div class="swiper-slide">
                 <img src="admin/src/images/sliderPromotions/<?php echo $row1['bannersPromotionsImage'];?>">
               </div>
@@ -636,7 +636,7 @@ connect_base_de_datos();
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>
@@ -650,7 +650,7 @@ connect_base_de_datos();
               	 viewBox="0 0 21.5 21.5" style="enable-background:new 0 0 21.5 21.5;" xml:space="preserve">
               <style type="text/css">
               	.st0{fill:#FFFFFF;}
-              	.st1{fill:#23275f;}
+              	.st1{fill:rgb(0,166,213);;}
               </style>
               <g id="XMLID_210_">
               	<path id="XMLID_216_" class="st0" d="M21.3,10.8c0,5.8-4.7,10.5-10.5,10.5C5,21.3,0.3,16.6,0.3,10.8C0.3,5,5,0.3,10.8,0.3
@@ -672,7 +672,7 @@ connect_base_de_datos();
               	 viewBox="0 0 21.5 21.5" style="enable-background:new 0 0 21.5 21.5;" xml:space="preserve">
               <style type="text/css">
               	.st0{fill:#FFFFFF;}
-              	.st1{fill:#23275f;}
+              	.st1{fill:rgb(0,166,213);;}
               </style>
               <g id="XMLID_211_">
               	<path id="XMLID_215_" class="st0" d="M21.2,10.7c0,5.8-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.7-10.5-10.5c0-5.8,4.7-10.5,10.5-10.5
@@ -695,7 +695,7 @@ connect_base_de_datos();
               	 viewBox="0 0 21.5 21.5" style="enable-background:new 0 0 21.5 21.5;" xml:space="preserve">
               <style type="text/css">
               	.st0{fill:#FFFFFF;}
-              	.st1{fill:#23275f;}
+              	.st1{fill:rgb(0,166,213);;}
               </style>
               <g id="XMLID_211_">
               	<path id="XMLID_215_" class="st0" d="M21.2,10.7c0,5.8-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.7-10.5-10.5c0-5.8,4.7-10.5,10.5-10.5

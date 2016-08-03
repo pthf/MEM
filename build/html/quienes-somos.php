@@ -121,7 +121,7 @@
   </div>
 
   <!-- Footer -->
-  <footer style="background-color:rgb(0,166,213);">
+  <footer>
     <div class="footer-wrapper">
       <div class="footer-top-right">
         <ul class="nav-footer">
@@ -136,7 +136,7 @@
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>

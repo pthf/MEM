@@ -1,12 +1,12 @@
 <?php 
 include("../admin/php/connect_bd.php"); 
-connect_base_de_datos();
+// connect_base_de_datos();
 if (isset($_GET)) {
   $idInterestblog = $_GET['idInterestblog']; 
   $query = "SELECT * FROM interestblog WHERE idInterestblog = '".$idInterestblog."'";
-  $result = mysql_query($query) or die(mysql_error());
-  $row = mysql_fetch_array($result);
-if(!mysql_num_rows($result)>0)
+  $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+  $row = mysqli_fetch_array($result);
+if(!mysqli_num_rows($result)>0)
   header('Location: ../index.php');
 }else{
   header('Location: ../index.php');
@@ -74,7 +74,7 @@ if(!mysql_num_rows($result)>0)
   </div>
 
   <!-- Footer -->
-  <footer style="background-color:rgb(0,166,213);">
+  <footer>
     <div class="footer-wrapper">
       <div class="footer-top-right">
         <ul class="nav-footer">
@@ -89,7 +89,7 @@ if(!mysql_num_rows($result)>0)
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>

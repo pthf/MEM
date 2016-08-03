@@ -1,6 +1,6 @@
 <?php 
 include("../admin/php/connect_bd.php"); 
-connect_base_de_datos();
+// connect_base_de_datos();
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,8 +55,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 16";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=16"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info">Audiometrias aérea <br> Audiometrias óseas</span>
@@ -69,8 +69,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 17";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=17"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"></span>
@@ -84,8 +84,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 18";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=18"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info"></span>
@@ -99,8 +99,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 19";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=19"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info">Rayos x, densitometrias, <br> resonancias magnéticas, tomógrafias, <br> ecosonogramas, etc.</span>
@@ -114,8 +114,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 20";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=20"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info">
@@ -134,8 +134,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 21";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=21"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info">
@@ -153,8 +153,8 @@ connect_base_de_datos();
             <div class="text-title ">
               <?php 
               $query = "SELECT * FROM services WHERE idservices = 22";
-              $result = mysql_query($query) or die(mysql_error());
-              $row = mysql_fetch_array($result);
+              $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+              $row = mysqli_fetch_array($result);
               ?>
               <span class="title-info"><a href="service-data.php?idservices=22"><?php echo $row['servicesName'];?></a></span>
               <span class="subtitle-info">
@@ -180,7 +180,7 @@ connect_base_de_datos();
   </div>
 
   <!-- Footer -->
-  <footer style="background-color:rgb(0,166,213);">
+  <footer>
     <div class="footer-wrapper">
       <div class="footer-top-right">
         <ul class="nav-footer">
@@ -195,7 +195,7 @@ connect_base_de_datos();
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>

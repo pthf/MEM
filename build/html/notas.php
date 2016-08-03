@@ -1,6 +1,6 @@
 <?php 
 include("../admin/php/connect_bd.php"); 
-connect_base_de_datos();
+// connect_base_de_datos();
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +49,8 @@ connect_base_de_datos();
 
       <?php 
       $query = "SELECT * FROM interestblog";
-      $result = mysql_query($query) or die(mysql_error());
-      while ($row = mysql_fetch_array($result)) { ?>
+      $result = mysqli_query(Conectar::con(),$query) or die(mysqli_error(Conectar::con()));
+      while ($row = mysqli_fetch_array($result)) { ?>
     
         <div class="notas-item">
 
@@ -115,24 +115,13 @@ connect_base_de_datos();
             </div>
 
              <div class="notas-item-img">
-              <?php 
-              // $query1 = "SELECT * FROM imagesNotes WHERE notes_idnotes = '".$row['idnotes']."'";
-              // $result1 = mysql_query($query1) or die(mysql_error());
-              // $row1 = mysql_fetch_array($result1);
-              ?>
                <img src="<?php echo $row['blogCover']?>">
              </div>
 
             <div class="notas-item-preview">
               <p>
                 <?php 
-                  // $length = 250;
-                  // $descriptionText = substr($row['notesDescription'], 0, $length);
-                  // if(strlen($row['notesDescription'])>$length){
-                  //   $descriptionText .= "...";
-                  // }
-                  // echo $descriptionText;
-                echo $row['blogShortDescription'];
+                  echo $row['blogShortDescription'];
                 ?>
               </p>
             </div>
@@ -155,7 +144,7 @@ connect_base_de_datos();
 
 
   <!-- Footer -->
-  <footer style="background-color:rgb(0,166,213);">
+  <footer>
     <div class="footer-wrapper">
       <div class="footer-top-right">
         <ul class="nav-footer">
@@ -170,7 +159,7 @@ connect_base_de_datos();
 
       <div class="footer-top-left">
         <ul class="data-list">
-          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-8,</li>
+          <li class="data-list-item">LÓPEZ MATEOS NORTE 1038-5,</li>
           <li class="data-list-item">COL. PROVIDENCIA.</li>
           <li class="data-list-item">CP. 44630, GUADALAJARA, JAL.</li>
           <li class="data-list-item">TELÉFONO: <a href="tel:3818 8000" style="color: #fff">3818 8000</a></li>
